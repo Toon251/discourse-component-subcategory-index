@@ -7,12 +7,12 @@
       }
 }
 
-.subscription-bar {
+.subcategory-bar {
     &__wrapper {
         color: var(--secondary);
         margin-top: 10px; /* Space above the box */
         padding: 10px;    /* Space inside the box (around the content) */
-        background-color: #702cf3;
+        background-color: #097f8c;
         border-radius: 5px; /* Slightly rounded corners */
         margin-left: 20px;
         margin-right: 20px;
@@ -24,8 +24,8 @@
         align-items: center;
         justify-content: between;
         flex-direction: column;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
         gap: 20px;
     }
 
@@ -38,12 +38,14 @@
         font-size: var(--font-up-1);
     }
 
-    &__title {
+    &__index {
         display: flex;
+        justify-items: start;
         align-items: center;
         font-size: var(--font-down-1);
         text-align: center;
         color: white;
+        gap: 5px;
     }
 
     &__button a {

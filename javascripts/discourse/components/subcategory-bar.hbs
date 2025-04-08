@@ -1,10 +1,18 @@
-<div class='subscription-bar__wrapper {{settings.plugin_outlet}}'>
-    <div class='subscription-bar__container'>
-        <div class='subscription-bar__title'>
-            ไม่พลาดทุกข้อมูลที่ช่วยคุณตัดสินใจในการลงทุน
+<div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
+    <div class='subcategory-bar__container'>
+        <div class='subcategory-bar__index'>
+            <div>
+                ทั้งหมด
+            </div>
+            <div>
+                A
+            </div>
+            <div>
+                B
+            </div>
         </div>
-        <div class='subscription-bar__button'>
-            <a id="subscription-bar__button_text" {{on 'click' this.handleClick}}>
+        <div class='subcategory-bar__button'>
+            <a id="subcategory-bar__button_text" {{on 'click' this.handleClick}}>
                 Subscribe
                 {{#if this.isMobile}}
                     
