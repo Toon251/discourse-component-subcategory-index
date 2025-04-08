@@ -1,0 +1,96 @@
+// Theme's SCSS
+.before-header-panel-outlet {
+    display: flex;
+    margin-left: auto;
+      + .panel {
+        margin-left: 0;
+      }
+}
+
+.subscription-bar {
+    &__wrapper {
+        color: var(--secondary);
+        margin-top: 10px; /* Space above the box */
+        padding: 10px;    /* Space inside the box (around the content) */
+        background-color: #702cf3;
+        border-radius: 5px; /* Slightly rounded corners */
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: between;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        gap: 20px;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content span {
+        font-size: var(--font-up-1);
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        font-size: var(--font-down-1);
+        text-align: center;
+        color: white;
+    }
+
+    &__button a {
+        margin-top: 10px;
+        padding: 10px;
+        color: white;
+        border: 1px  solid #f6f3f3;
+        background-color: #702cf3;
+        border-radius: 5px; /* Slightly rounded corners */
+        cursor: pointer;
+    }
+
+    &__button a:hover {
+        background-color: #5c0bf2;
+        color: white;
+    }
+
+    &__subtitle div {
+        font-size: var(--font-up-3);
+    }
+
+
+}
+
+
+
+.user-info-component {
+    margin: 10px;
+}
+
+#fetchUserInfoButton {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#fetchUserInfoButton:hover {
+    background-color: #0056b3;
+}
+
+#userInfoDisplay {
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    border: 1px solid #f6f3f3;
+    background-color: #702cf3;
+}
+
