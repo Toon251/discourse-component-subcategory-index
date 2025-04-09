@@ -118,7 +118,7 @@ export default class SubscriptionBar extends Component {
   
     @action
     filterLetter(letter) {
-        alert("Letter is " + letter);
+        //alert("Letter is " + letter);
         this.letterFilter = letter;
     }
 
