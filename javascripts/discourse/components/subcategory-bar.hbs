@@ -19,7 +19,7 @@
         </div>
         <div class="subcategory-bar__grid-container">
             {{#each this.subcategories as |sc|}}
-                {{#if (or (eq this.filterLetter "") (eq (upcase (charAt sc.name 0)) this.filterLetter))}}
+                {{#if (or (eq this.filterLetter "") (eq (charAt sc.name 0) this.filterLetter))}}
                     <div class="subcategory-bar__grid-item">
                         <div>{{sc.name}}</div>
                         <div>
