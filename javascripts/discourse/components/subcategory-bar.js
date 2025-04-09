@@ -8,6 +8,7 @@ const categoryConfig = JSON.parse(settings.categories);
 
 export default class SubscriptionBar extends Component {
     //@tracked isMobile = false;
+    @service router;
     @service appEvents;
 
     @tracked isLoading;
