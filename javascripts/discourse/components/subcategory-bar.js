@@ -16,6 +16,7 @@ export default class SubscriptionBar extends Component {
     @tracked show = false;
     @tracked currentCategoryId;
     @tracked subcategories;
+    @tracked indexes = [];
 
     constructor() {
       super(...arguments);
@@ -53,6 +54,14 @@ export default class SubscriptionBar extends Component {
             this.subcategories = [];
           }
           console.log(this.subcategories);
+          this.subcategories.forEach((c) => {
+            const firstLetter = c.toUpperCase().charAt(0);
+            const p = this.indexes.find(firstLetter)
+            if(p === undefined) {
+              this.indexes.push(firstLetter)
+            }
+          })
+          console.log(this.indexes);
           
           //return cat.subcategory_list;
         })

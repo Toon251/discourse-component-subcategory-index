@@ -7,6 +7,10 @@
       }
 }
 
+.index-link {
+    border-left: 1px solid #ccc;
+}
+
 .subcategory-bar {
     &__wrapper {
         color: var(--secondary);
@@ -44,7 +48,7 @@
         font-size: var(--font-down-1);
         text-align: center;
         color: white;
-        gap: 5px;
+        gap: 10px;
     }
 
     &__button a {
