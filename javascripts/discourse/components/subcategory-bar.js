@@ -32,6 +32,8 @@ export default class SubscriptionBar extends Component {
       if (categoryController) {
           this.categoryId = categoryController.get('model.id');
           console.log('Current Category ID:', this.categoryId);
+      }else{
+          console.log('Not found controller:category');
       }
   }
 
