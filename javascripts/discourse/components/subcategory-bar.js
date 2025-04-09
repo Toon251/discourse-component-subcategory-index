@@ -45,7 +45,7 @@ export default class SubscriptionBar extends Component {
       return /Mobi|Android/i.test(navigator.userAgent);
     }
 
-    @action
+    
     isLetterFilter(s) {
       console.log("isLetterFilter" + s)
       const ret =this.letterFilter === "" || s.toUpperCase().charAt(0) === this.letterFilter;
