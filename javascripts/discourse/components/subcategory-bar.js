@@ -14,6 +14,7 @@ export default class SubscriptionBar extends Component {
     @tracked isLoading;
     @tracked show = false;
     @tracked currentCategoryId;
+    @tracked subcategories;
 
     constructor() {
       super(...arguments);
@@ -42,6 +43,16 @@ export default class SubscriptionBar extends Component {
       if (this.currentCategory() && this.configuredCategory()) {
         this.isLoading = true;
         this.show = true;
+
+        this.subcategories = ajax(`/categories.json?include_subcategories=true`).then((result) => {
+          const cat = result.category_list.categories.filter((c) => c.id === this.currentCategoryId);
+          return cat.subcategory_list;
+        })
+
+        console.log(this.subcategories)
+
+
+
         /*this.galleryOnly = this.configuredCategory().galleryOnly;
   
         let id = parseInt(this.configuredCategory().topic, 10);
