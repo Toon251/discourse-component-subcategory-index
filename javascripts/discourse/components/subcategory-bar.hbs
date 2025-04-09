@@ -1,19 +1,21 @@
 <div>Subcategory indexes : {{this.currentCategoryId}}</div>
 {{#if this.show}}
-    <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
-        <div class='subcategory-bar__container'>
-            <div class='subcategory-bar__index'>
-                <div>
-                    ทั้งหมด {{this.letterIndexes.length}}
-                </div>
-                {{#each this.letterIndexes as |letter|}}
-                    <div class="index-link">
-                        {{letter}}
+    {{#conditional-loading-spinner condition=this.isLoading}}
+        <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
+            <div class='subcategory-bar__container'>
+                <div class='subcategory-bar__index'>
+                    <div>
+                        ทั้งหมด {{this.letterIndexes.length}}
                     </div>
-                {{/each}}
+                    {{#each this.letterIndexes as |letter|}}
+                        <div class="index-link">
+                            {{letter}}
+                        </div>
+                    {{/each}}
+                </div>
             </div>
         </div>
-    </div>
+    {{/conditional-loading-spinner}}
 {{else}}
     <div>
         Not display

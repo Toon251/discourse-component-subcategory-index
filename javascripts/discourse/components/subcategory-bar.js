@@ -12,7 +12,7 @@ export default class SubscriptionBar extends Component {
     @service router;
     @service appEvents;
 
-    @tracked isLoading;
+    @tracked isLoading ;
     @tracked show = false;
     @tracked currentCategoryId;
     @tracked subcategories;
@@ -46,7 +46,8 @@ export default class SubscriptionBar extends Component {
         this.isLoading = true;
         this.show = true;
 
-        ajax(`/categories.json?include_subcategories=true`).then((result) => {
+        this.letterIndexes = ajax(`/categories.json?include_subcategories=true`).then((result) => {
+          let arr = []
           const cat = result.category_list.categories.filter((c) => c.id === this.currentCategoryId);
           if(cat.length > 0){
             this.subcategories = cat[0].subcategory_list;
@@ -60,17 +61,19 @@ export default class SubscriptionBar extends Component {
               firstLetter = "0-9"
             }
             
-            const p = this.letterIndexes.filter(x => x === firstLetter);
+            const p = arr.filter(x => x === firstLetter);
             console.log(p)
             if(p.length > 0 || p !== null) {
               console.log("Add " + firstLetter)
-              this.letterIndexes.push(firstLetter)
+              arr.push(firstLetter)
             }
           })
           console.log(this.letterIndexes);
           
-          //return cat.subcategory_list;
+          return arr;
         })
+
+
 
         
 
