@@ -19,7 +19,7 @@
         </div>
         <div class="subcategory-bar__grid-container">
             {{#each this.subcategories as |sc|}}
-                {{#if this.filterLetter === "" || sc.name.toUpperCase().chartAt(0) === this.filterLetter}}
+                {{#if this.filterLetter == "" || sc.name.toUpperCase().chartAt(0) == this.filterLetter}}
                     <div class="subcategory-bar__grid-item">
                         <div>{{sc.name}}</div>
                         <div>
