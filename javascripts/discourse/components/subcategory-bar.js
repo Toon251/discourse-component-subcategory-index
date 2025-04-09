@@ -133,8 +133,8 @@ export default class SubscriptionBar extends Component {
     }
 
     @action
-    goSubcategory(parentSlug, slug) {
-      const url = "/c/" + parentSlug + "/" + slug
+    goSubcategory(slug) {
+      const url = "/c/" + this.parentSlug + "/" + slug
       alert("go " + url);
       window.location.href = url;
     }

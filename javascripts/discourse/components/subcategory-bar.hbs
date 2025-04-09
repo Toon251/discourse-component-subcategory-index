@@ -1,6 +1,7 @@
 {{#if this.show}}
     <!--<div>Subcategory indexes : {{this.currentCategoryId}}</div>
     <div>Filter : {{this.letterFilter}}</div>-->
+    <div>Slug : {{this.parentSlug}}</div>
     {{#conditional-loading-spinner condition=this.isLoading}}
         <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
             <div class='subcategory-bar__container'>
