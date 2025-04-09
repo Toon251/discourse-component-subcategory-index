@@ -6,7 +6,7 @@
             <div class='subcategory-bar__container'>
                 <div class='subcategory-bar__index'>
                     <div>
-                        <a {{on 'click' (fn this.filterLetter ) }}>{{letter}}</a> ทั้งหมด </a> ({{this.letterIndexes.length}})
+                        <a {{on 'click' (fn this.filterLetter ) }}>{{letter}} ทั้งหมด </a> ({{this.letterIndexes.length}})
                     </div>
                     {{#each this.letterIndexes as |letter|}}
                         <div class="index-link">
@@ -19,12 +19,14 @@
         </div>
         <div class="subcategory-bar__grid-container">
             {{#each this.subcategories as |sc|}}
-                <div class="subcategory-bar__grid-item">
-                    <div>{{sc.name}}</div>
-                    <div>
-                        {{sc.description}}
+                {{#if (or (eq this.filterLetter "") (eq (upcase (charAt sc.name 0)) this.filterLetter))}}
+                    <div class="subcategory-bar__grid-item">
+                        <div>{{sc.name}}</div>
+                        <div>
+                            {{sc.description}}
+                        </div>
                     </div>
-                </div>
+                {{/if}}
             {{/each}}
         </div>
     {{/conditional-loading-spinner}}
