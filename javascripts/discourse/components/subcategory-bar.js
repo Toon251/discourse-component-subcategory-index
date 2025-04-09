@@ -47,12 +47,8 @@ export default class SubscriptionBar extends Component {
 
     
     isLetterFilter(s, f) {
-      console.log(f)
-      const r = s.toUpperCase().charAt(0) === f;
-      if(r) 
-        return 1
-      else 
-        return 0 
+      const r = f === "" || s.toUpperCase().charAt(0) === f;
+      return r
     }
 
     _getSubcategory() {
