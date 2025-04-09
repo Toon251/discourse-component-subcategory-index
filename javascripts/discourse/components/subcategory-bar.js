@@ -38,9 +38,16 @@ export default class SubscriptionBar extends Component {
       }
     }
 
+    
+
     @computed
     get isMobile() {
       return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    @action
+    isLetterFilter(name) {
+      return this.letterFilter === "" || name.toUpperCase().charAt(0) === this.letterFilter;
     }
 
     _getSubcategory() {
