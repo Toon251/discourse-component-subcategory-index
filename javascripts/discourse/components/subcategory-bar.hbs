@@ -12,6 +12,16 @@
                             {{letter}}
                         </div>
                     {{/each}}
+                    <div>
+                        {{#each this.subcategories as |sc|}}
+                            <div class="index-link">
+                                {{sc.name}}
+                                <div>
+                                    {{sc.description}}
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
         </div>
