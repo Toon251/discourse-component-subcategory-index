@@ -20,7 +20,7 @@
         <div class="subcategory-bar__grid-container">
             {{#each this.subcategories as |sc|}}
 
-                {{#if this.isLetterFilter sc.name}}
+                {{#if (fn this.isLetterFilter sc.name)}}
 
                     <div class="subcategory-bar__grid-item">
                         <div>{{sc.name}}</div>
