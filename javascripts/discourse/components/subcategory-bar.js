@@ -47,7 +47,7 @@ export default class SubscriptionBar extends Component {
         this.isLoading = true;
         this.show = true;
 
-        this.letterIndexes = ajax(`/categories.json?include_subcategories=true`).then((result) => {
+        let results = ajax(`/categories.json?include_subcategories=true`).then((result) => {
           let arr = []
           const cat = result.category_list.categories.filter((c) => c.id === this.currentCategoryId);
           if(cat.length > 0){
@@ -74,7 +74,8 @@ export default class SubscriptionBar extends Component {
           return arr;
         })
 
-        Promise.all([letterIndexes]).then((result) => {
+        Promise.all([results]).then((r) => {
+          this.letterIndexes = r
           this.isLoading = false;
         });
 
