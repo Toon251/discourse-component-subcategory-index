@@ -6,9 +6,11 @@
                 <div>
                     ทั้งหมด
                 </div>
-                <div class="index-link">
-                    A
-                </div>
+                {{#each this.letterIndexes as |letter|}}
+                    <div class="index-link">
+                        {{letter}}
+                    </div>
+                {{/each}}
             </div>
         </div>
     </div>

@@ -55,7 +55,11 @@ export default class SubscriptionBar extends Component {
           }
           console.log(this.subcategories);
           this.subcategories.forEach((c) => {
-            const firstLetter = c.name.toUpperCase().charAt(0);
+            let firstLetter = c.name.toUpperCase().charAt(0);
+            if(/^[0-9]$/.test(firstLetter)){
+              firstLetter = "0-9"
+            }
+            
             const p = this.letterIndexes.filter(x => x === firstLetter);
             console.log(p)
             if(p.length > 0 || p !== null) {
