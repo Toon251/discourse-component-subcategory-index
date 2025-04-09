@@ -46,9 +46,9 @@ export default class SubscriptionBar extends Component {
     }
 
     
-    isLetterFilter(s) {
-      console.log(this.letterFilter)
-      const r = s.toUpperCase().charAt(0) === this.letterFilter;
+    isLetterFilter(s, f) {
+      console.log(f)
+      const r = s.toUpperCase().charAt(0) === f;
       if(r) 
         return 1
       else 
