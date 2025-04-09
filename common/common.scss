@@ -45,10 +45,11 @@
     }
 
     &__grid-item {
-        background-color: lightblue;
+        background-color: rgb(57, 64, 66);
         padding: 20px;
         text-align: center;
         border: 1px solid #ccc;
+        color: white;
     }
 
     &__content {

@@ -18,6 +18,7 @@ export default class SubscriptionBar extends Component {
     @tracked currentCategoryId;
     @tracked subcategories;
     @tracked letterIndexes = [];
+    @tracked letterFilter = "";
 
     constructor() {
       super(...arguments);
@@ -117,8 +118,7 @@ export default class SubscriptionBar extends Component {
   
     @action
     handleClick() {
-        this.fetchUserSubscription();
-
+        alert("Test");
     }
 
   

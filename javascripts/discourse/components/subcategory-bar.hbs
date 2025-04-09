@@ -9,7 +9,7 @@
                     </div>
                     {{#each this.letterIndexes as |letter|}}
                         <div class="index-link">
-                            {{letter}}
+                            <a {{on 'click' this.handleClick}}>{{letter}}</a>
                         </div>
                     {{/each}}
                     
