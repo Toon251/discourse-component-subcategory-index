@@ -3,6 +3,7 @@ import { computed, action } from '@ember/object';
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { bind } from "discourse/lib/decorators";
+import { ajax } from "discourse/lib/ajax";
 
 
 
