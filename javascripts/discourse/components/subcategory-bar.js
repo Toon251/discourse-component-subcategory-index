@@ -45,12 +45,14 @@ export default class SubscriptionBar extends Component {
         this.isLoading = true;
         this.show = true;
 
-        this.subcategories = ajax(`/categories.json?include_subcategories=true`).then((result) => {
+        ajax(`/categories.json?include_subcategories=true`).then((result) => {
           const cat = result.category_list.categories.filter((c) => c.id === this.currentCategoryId);
-          return cat.subcategory_list;
+          this.subcategories = cat.subcategory_list;
+          console.log(this.subcategories)
+          //return cat.subcategory_list;
         })
 
-        console.log(this.subcategories)
+        
 
 
 
