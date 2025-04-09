@@ -16,7 +16,7 @@ export default class SubscriptionBar extends Component {
     @tracked show = false;
     @tracked currentCategoryId;
     @tracked subcategories;
-    @tracked indexes = [];
+    @tracked letterIndexes = [];
 
     constructor() {
       super(...arguments);
@@ -56,12 +56,12 @@ export default class SubscriptionBar extends Component {
           console.log(this.subcategories);
           this.subcategories.forEach((c) => {
             const firstLetter = c.name.toUpperCase().charAt(0);
-            const p = this.indexes.find(firstLetter)
-            if(p === undefined) {
-              this.indexes.push(firstLetter)
+            const p = this.letterIndexes.filter(x => x === firstLetter);
+            if(p.length > 0) {
+              this.letterIndexes.push(firstLetter)
             }
           })
-          console.log(this.indexes);
+          console.log(this.letterIndexes);
           
           //return cat.subcategory_list;
         })
