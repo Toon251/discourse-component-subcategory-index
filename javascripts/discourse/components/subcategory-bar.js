@@ -75,9 +75,9 @@ export default class SubscriptionBar extends Component {
         })
 
         Promise.all([results]).then((r) => {
-          console.log(r);
+          //console.log(r[0]);
 
-          this.letterIndexes = r;
+          this.letterIndexes = r[0];
 
           this.isLoading = false;
         });
