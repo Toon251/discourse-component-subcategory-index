@@ -4,6 +4,7 @@ import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { bind } from "discourse/lib/decorators";
 import { ajax } from "discourse/lib/ajax";
+import { Promise } from "rsvp";
 
 
 
@@ -72,6 +73,12 @@ export default class SubscriptionBar extends Component {
           
           return arr;
         })
+
+        Promise.all([topicContent]).then((result) => {
+          this.isLoading = false;
+        });
+
+        
 
 
 
