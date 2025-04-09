@@ -6,7 +6,8 @@ apiKey: 'c159790ac5f92bcff28630e7160b979a455d56989e85cf160613492895a05bfb'
 apiUsername: 'system'
 url_generate_token: 'https://demo-connect-web.efinancethai.com/api/generate-jwt'
 url_subscription: 'http://localhost:4200/pricing'
-categories:
-  default: >-
-    [{}]
-  json_schema: '{"type":"array","format":"list","uniqueItems":true,"items":{"type":"object","properties":{"category":{"type":"string","description":"category ID"},"topic":{"type":"string"}},"additionalProperties":false}}'
+categoryIds: {
+    "type": "array",
+    "description": "List of category IDs",
+    "default": []
+}

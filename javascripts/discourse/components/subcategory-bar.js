@@ -4,7 +4,7 @@ import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { bind } from "discourse/lib/decorators";
 
-const categoryConfig = JSON.parse(settings.categories);
+
 
 export default class SubscriptionBar extends Component {
     //@tracked isMobile = false;
@@ -28,10 +28,8 @@ export default class SubscriptionBar extends Component {
 
     @bind
     configuredCategory() {
-      if (categoryConfig.length) {
-        return categoryConfig.find(
-          (setting) => parseInt(setting.category, 10) === this.currentCategory()
-        );
+      if (settings.categoryIds.length) {
+        return settings.categoryIds.includes(this.currentCategory());
       }
     }
 
