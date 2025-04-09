@@ -7,7 +7,7 @@ apiUsername: 'system'
 url_generate_token: 'https://demo-connect-web.efinancethai.com/api/generate-jwt'
 url_subscription: 'http://localhost:4200/pricing'
 categoryIds: {
-    "type": "list",
-    "description": "List of category IDs",
-    "default": []
+    type: "list",
+    description: "List of category IDs",
+    default: []
 }
