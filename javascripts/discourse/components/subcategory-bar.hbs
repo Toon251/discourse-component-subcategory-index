@@ -5,11 +5,11 @@
             <div class='subcategory-bar__container'>
                 <div class='subcategory-bar__index'>
                     <div>
-                        ทั้งหมด {{this.letterIndexes.length}}
+                        ทั้งหมด ({{this.letterIndexes.length}})
                     </div>
                     {{#each this.letterIndexes as |letter|}}
                         <div class="index-link">
-                            <a {{on 'click' this.handleClick}}>{{letter}}</a>
+                            <a {{on 'click' this.filterLetter(letter)}}>{{letter}}</a>
                         </div>
                     {{/each}}
                     

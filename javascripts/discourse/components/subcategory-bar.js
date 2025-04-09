@@ -117,8 +117,8 @@ export default class SubscriptionBar extends Component {
     }
   
     @action
-    handleClick() {
-        alert("Test");
+    filterLetter(letter) {
+        alert("Letter is " + letter);
     }
 
   
