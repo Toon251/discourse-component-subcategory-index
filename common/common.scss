@@ -36,6 +36,21 @@
         gap: 20px;
     }
 
+
+    &__grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        gap: 16px; /* Space between grid items */
+        padding: 16px; /* Padding around the grid container */
+    }
+
+    &__grid-item {
+        background-color: lightblue;
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
     &__content {
         display: flex;
         justify-content: center;

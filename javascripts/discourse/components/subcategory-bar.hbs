@@ -12,18 +12,19 @@
                             {{letter}}
                         </div>
                     {{/each}}
-                    <div>
-                        {{#each this.subcategories as |sc|}}
-                            <div class="index-link">
-                                {{sc.name}}
-                                <div>
-                                    {{sc.description}}
-                                </div>
-                            </div>
-                        {{/each}}
-                    </div>
+                    
                 </div>
             </div>
+        </div>
+        <div class="subcategory-bar__grid-container">
+            {{#each this.subcategories as |sc|}}
+                <div class="subcategory-bar__grid-item">
+                    <div>{{sc.name}}</div>
+                    <div>
+                        {{sc.description}}
+                    </div>
+                </div>
+            {{/each}}
         </div>
     {{/conditional-loading-spinner}}
 {{else}}
