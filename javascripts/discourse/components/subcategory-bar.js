@@ -1,6 +1,7 @@
 import Component from "@glimmer/component";
 import { computed, action } from '@ember/object';
 import Service from '@ember/service';
+import { getOwner } from '@ember/application';
 
 export default class SubscriptionBar extends Component {
     //@tracked isMobile = false;
