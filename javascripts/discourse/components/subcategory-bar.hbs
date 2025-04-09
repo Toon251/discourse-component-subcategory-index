@@ -19,14 +19,12 @@
         </div>
         <div class="subcategory-bar__grid-container">
             {{#each this.subcategories as |sc|}}
-                {{#if (eq this.filterLetter "")}}
-                    <div class="subcategory-bar__grid-item">
-                        <div>{{sc.name}}</div>
-                        <div>
-                            {{sc.description}}
-                        </div>
+                <div class="subcategory-bar__grid-item">
+                    <div>{{sc.name}}</div>
+                    <div>
+                        {{sc.description}}
                     </div>
-                {{/if}}
+                </div>
             {{/each}}
         </div>
     {{/conditional-loading-spinner}}
