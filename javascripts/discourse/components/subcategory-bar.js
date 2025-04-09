@@ -16,6 +16,27 @@ export default class SubscriptionBar extends Component {
 
     }
 
+    didInsertElement() {
+        this._super(...arguments);
+        console.log("disInsertElement");
+
+        // Access the current route and check if it's a category route
+        const currentRoute = this.router.currentRouteName;
+
+        if (currentRoute.startsWith('category.')) {
+            // Get the category controller
+            const categoryController = this.get('categoryController');
+
+            // Retrieve the current category ID
+            const categoryId = categoryController.get('model.id');
+
+            // Log the category ID to the console
+            console.log('Current Category ID:', categoryId);
+
+            // Optionally, you can use the categoryId for further logic
+        }
+    }
+
     async fetchUserSubscription() {
         try {
 
