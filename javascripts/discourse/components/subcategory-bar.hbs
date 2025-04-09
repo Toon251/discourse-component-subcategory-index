@@ -1,6 +1,6 @@
 {{#if this.show}}
-    <div>Subcategory indexes : {{this.currentCategoryId}}</div>
-    <div>Filter : {{this.letterFilter}}</div>
+    <!--<div>Subcategory indexes : {{this.currentCategoryId}}</div>
+    <div>Filter : {{this.letterFilter}}</div>-->
     {{#conditional-loading-spinner condition=this.isLoading}}
         <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
             <div class='subcategory-bar__container'>
@@ -23,7 +23,8 @@
             
                 {{#if (this.isLetterFilter sc.name this.letterFilter) }}
 
-                    <div class="subcategory-bar__grid-item">
+
+                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
                         <div>{{sc.name}}</div>
                         <div>
                             {{sc.description}}
@@ -34,7 +35,7 @@
         </div>
     {{/conditional-loading-spinner}}
 {{else}}
-    <div>
+    <!--<div>
         Hidden
-    </div>
+    </div>-->
 {{/if}}

@@ -19,6 +19,7 @@ export default class SubscriptionBar extends Component {
     @tracked subcategories;
     @tracked letterIndexes = [];
     @tracked letterFilter = "";
+    @tracked parentSlug;
 
     constructor() {
       super(...arguments);
@@ -60,6 +61,7 @@ export default class SubscriptionBar extends Component {
           let arr = []
           const cat = result.category_list.categories.filter((c) => c.id === this.currentCategoryId);
           if(cat.length > 0){
+            this.parentSlug = cat[0].slug;
             this.subcategories = cat[0].subcategory_list;
           }else{
             this.subcategories = [];
@@ -128,6 +130,13 @@ export default class SubscriptionBar extends Component {
     filterLetter(letter) {
         //alert("Letter is " + letter);
         this.letterFilter = letter;
+    }
+
+    @action
+    goSubcategory(parentSlug, slug) {
+      const url = "/c/" + parentSlug + "/" + slug
+      alert("go " + url);
+      window.location.href = url;
     }
 
   
