@@ -1,21 +1,70 @@
 import Component from "@glimmer/component";
 import { computed, action } from '@ember/object';
-import Service from '@ember/service';
+import { service } from "@ember/service";
 import { getOwner } from '@ember/application';
+
+const categoryConfig = JSON.parse(settings.categories);
 
 export default class SubscriptionBar extends Component {
     //@tracked isMobile = false;
+    @service appEvents;
 
-    categoryId = null;
+    @tracked isLoading;
+    @tracked show = false;
+    @tracked currentCategoryId;
 
     constructor() {
-        super(...arguments);
-        this.getCategoryId();
+      super(...arguments);
+      this.appEvents.on("page:changed", this, this._getSubcategory);
+    }
+
+    @bind
+    currentCategory() {
+      this.currentCategoryId = this.router.currentRoute?.attributes?.category?.id;
+      return this.router.currentRoute?.attributes?.category?.id;
+    }
+
+    @bind
+    configuredCategory() {
+      if (categoryConfig.length) {
+        return categoryConfig.find(
+          (setting) => parseInt(setting.category, 10) === this.currentCategory()
+        );
+      }
     }
 
     @computed
     get isMobile() {
       return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
+    _getSubcategory() {
+      if (this.currentCategory() && this.configuredCategory()) {
+        this.isLoading = true;
+        this.show = true;
+        /*this.galleryOnly = this.configuredCategory().galleryOnly;
+  
+        let id = parseInt(this.configuredCategory().topic, 10);
+  
+        let topicContent = ajax(`/t/${id}.json`).then((result) => {
+          this.topicId = result.id;
+          return result.post_stream.posts[0].cooked;
+        });
+        Promise.all([topicContent]).then((result) => {
+          let htmlWrapper = document.createElement("div");
+          htmlWrapper.innerHTML = result[0];
+  
+          let imageList = htmlWrapper.querySelectorAll("img");
+  
+          this.topicContent = imageList;
+          
+          scrollTop();
+        });*/
+        this.isLoading = false;
+      } else {
+        this.isLoading = false;
+        this.showFor = false;
+      }
     }
   
     @action
@@ -24,18 +73,7 @@ export default class SubscriptionBar extends Component {
 
     }
 
-    getCategoryId() {
-      // Access the current category controller
-      const owner = getOwner(this);
-      const categoryController = owner.lookup('controller:category');
-
-      if (categoryController) {
-          this.categoryId = categoryController.get('model.id');
-          console.log('Current Category ID:', this.categoryId);
-      }else{
-          console.log('Not found controller:category');
-      }
-  }
+  
 
     async fetchUserSubscription() {
         try {

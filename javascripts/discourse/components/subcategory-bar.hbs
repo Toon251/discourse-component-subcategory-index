@@ -1,15 +1,22 @@
-<div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
-    <div class='subcategory-bar__container'>
-        <div class='subcategory-bar__index'>
-            <div>
-                ทั้งหมด
-            </div>
-            <div>
-                0-9
-            </div>
-            <div>
-                A
+<div>Subcategory indexes : {{this.currentCategoryId}}</div>
+{{#if this.show}}
+    <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
+        <div class='subcategory-bar__container'>
+            <div class='subcategory-bar__index'>
+                <div>
+                    ทั้งหมด
+                </div>
+                <div>
+                    0-9
+                </div>
+                <div>
+                    A
+                </div>
             </div>
         </div>
     </div>
-</div>
+{{else}}
+    <div>
+        Not display
+    </div>
+{{/if}}
