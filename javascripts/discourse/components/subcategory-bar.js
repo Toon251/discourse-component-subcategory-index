@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { computed, action } from '@ember/object';
 import { service } from "@ember/service";
 import { getOwner } from '@ember/application';
+import { tracked } from "@glimmer/tracking";
 
 const categoryConfig = JSON.parse(settings.categories);
 
