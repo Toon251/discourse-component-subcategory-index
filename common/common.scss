@@ -40,12 +40,12 @@
     &__grid-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-        gap: 16px; /* Space between grid items */
-        padding: 16px; /* Padding around the grid container */
+        gap: 4px; /* Space between grid items */
+        padding: 4px; /* Padding around the grid container */
     }
 
     &__grid-item {
-        background-color: rgb(49, 52, 52);
+        background-color: rgb(29, 31, 31);
         padding: 5px;
         text-align: left;
         /*border: 1px solid #ccc;*/
