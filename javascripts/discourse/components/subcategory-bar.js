@@ -74,8 +74,8 @@ export default class SubscriptionBar extends Component {
             }
             
             const p = arr.filter(x => x === firstLetter);
-            console.log(p)
-            if(p.length > 0 || p !== null) {
+            
+            if(p.length == 0 ) {
               console.log("Add " + firstLetter)
               arr.push(firstLetter)
             }

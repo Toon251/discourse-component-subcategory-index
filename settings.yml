@@ -1,11 +1,7 @@
 plugin_outlet:
-  default: "above-site-header"
+  default: "discovery-above"
 hide_on_mobile:
   default: false
-apiKey: 'c159790ac5f92bcff28630e7160b979a455d56989e85cf160613492895a05bfb'
-apiUsername: 'system'
-url_generate_token: 'https://demo-connect-web.efinancethai.com/api/generate-jwt'
-url_subscription: 'http://localhost:4200/pricing'
 categoryIds: {
     type: list,
     description: "List of category IDs",
