@@ -26,8 +26,8 @@
 
 
                     <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                        <div>{{sc.name}}</div>
-                        <div>
+                        <span style="font-weight:bold">{{sc.name}}</span> : 
+                        <span>
                             {{sc.description}}
                         </div>
                     </div>
