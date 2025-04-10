@@ -39,16 +39,16 @@
 
     &__grid-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
         gap: 16px; /* Space between grid items */
         padding: 16px; /* Padding around the grid container */
     }
 
     &__grid-item {
-        background-color: rgb(57, 64, 66);
+        /*background-color: rgb(57, 64, 66);*/
         padding: 20px;
         text-align: center;
-        border: 1px solid #ccc;
+        /*border: 1px solid #ccc;*/
         color: white;
         cursor: pointer;
     }
