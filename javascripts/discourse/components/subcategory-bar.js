@@ -82,7 +82,7 @@ export default class SubscriptionBar extends Component {
           })
           //console.log(this.letterIndexes);
 
-          arr.sort((a, b) => a - b);
+          arr.sort();
           
           return arr;
         })
