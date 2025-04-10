@@ -26,10 +26,10 @@
 
 
                     <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                        <span>{{sc.name}}</span>
+                        <span style="font-weight:bold">{{sc.name}}</span>
                         <span>
                             {{sc.description}}
-                        </div>
+                        </span>
                     </div>
                 {{/if}}
             {{/each}}
