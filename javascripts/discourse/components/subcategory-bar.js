@@ -76,11 +76,13 @@ export default class SubscriptionBar extends Component {
             const p = arr.filter(x => x === firstLetter);
             
             if(p.length == 0 ) {
-              console.log("Add " + firstLetter)
+              //console.log("Add " + firstLetter)
               arr.push(firstLetter)
             }
           })
-          console.log(this.letterIndexes);
+          //console.log(this.letterIndexes);
+
+          arr.sort((a, b) => a - b);
           
           return arr;
         })
