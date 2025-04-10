@@ -1,30 +1,3 @@
-bar_text:
-  type: string
-  default: "Exciting news and opportunities!"
-  description:
-    en: "Text for the announcement bar."
-button_text:
-  type: string
-  default: "Learn more"
-  description:
-    en: "Button text for the announcement bar."
-button_link:
-  type: string
-  default: "/"
-  description:
-    en: "Button Link for the announcement bar."
-update_version:
-  type: string
-  default: "20231115"
-  description:
-    en: "Increase this version if you want to make the announcement bar re-appear for users that closed it."
-show_on:
-  default: "everywhere"
-  type: enum
-  choices:
-    - homepage
-    - latest/top/new/categories
-    - everywhere
 plugin_outlet:
   default: "above-site-header"
 hide_on_mobile:
@@ -33,13 +6,8 @@ apiKey: 'c159790ac5f92bcff28630e7160b979a455d56989e85cf160613492895a05bfb'
 apiUsername: 'system'
 url_generate_token: 'https://demo-connect-web.efinancethai.com/api/generate-jwt'
 url_subscription: 'http://localhost:4200/pricing'
-subscribe_title:
-  type: string
-  default: "ไม่พลาดทุกข้อมูลที่ช่วยคุณตัดสินใจในการลงทุน"
-  description:
-    en: "รายละเอียด Subscribe"
-subscribe_button_text:
-  type: string
-  default: "Subscribe"
-  description:
-    en: "Button text for subscribe."
+categoryIds: {
+    type: list,
+    description: "List of category IDs",
+    default: ""
+}

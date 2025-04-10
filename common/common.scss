@@ -7,15 +7,22 @@
       }
 }
 
-.subscription-bar {
+.index-link {
+    border-left: 1px solid #747272;
+    padding-left: 10px;
+    font-size: medium;
+    text-align: center;
+    padding-right: 5px;
+}
+
+.subcategory-bar {
     &__wrapper {
         color: var(--secondary);
         margin-top: 10px; /* Space above the box */
         padding: 10px;    /* Space inside the box (around the content) */
-        background-color: #702cf3;
         border-radius: 5px; /* Slightly rounded corners */
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     &__container {
@@ -24,9 +31,26 @@
         align-items: center;
         justify-content: between;
         flex-direction: column;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
         gap: 20px;
+    }
+
+
+    &__grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        gap: 16px; /* Space between grid items */
+        padding: 16px; /* Padding around the grid container */
+    }
+
+    &__grid-item {
+        background-color: rgb(57, 64, 66);
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #ccc;
+        color: white;
+        cursor: pointer;
     }
 
     &__content {
@@ -38,12 +62,14 @@
         font-size: var(--font-up-1);
     }
 
-    &__title {
+    &__index {
         display: flex;
+        justify-items: start;
         align-items: center;
         font-size: var(--font-down-1);
         text-align: center;
         color: white;
+        gap: 10px;
     }
 
     &__button a {
