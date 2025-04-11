@@ -34,7 +34,7 @@ export default class SubscriptionBar extends Component {
 
     @bind
     configuredCategory() {
-      if (settings.categoryIds.length && this.currentCategoryId !== "") {
+      if (settings.categoryIds.length) {
         return settings.categoryIds.includes(this.currentCategory());
       }else{
         return false
@@ -55,8 +55,10 @@ export default class SubscriptionBar extends Component {
     }
 
     _getSubcategory() {
-      this.currentCategoryId = "";
+      this.currentCategoryId = 0;
       console.log("getSubCategory");
+      console.log(this.currentCategoryId);
+
       if (this.configuredCategory()) {
         this.isLoading = true;
         this.show = true;
