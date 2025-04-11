@@ -130,7 +130,7 @@ export default class SubscriptionBar extends Component {
         this.isLoading = false;
       } else {
         this.isLoading = false;
-        this.showFor = false;
+        this.show = false;
       }
     }
   
