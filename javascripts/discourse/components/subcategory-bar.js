@@ -34,7 +34,7 @@ export default class SubscriptionBar extends Component {
 
     @bind
     configuredCategory() {
-      if (settings.categoryIds.length) {
+      if (settings.categoryIds.length && this.currentCategoryId !== "") {
         return settings.categoryIds.includes(this.currentCategory());
       }else{
         return false
