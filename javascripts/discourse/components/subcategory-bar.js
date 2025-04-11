@@ -55,6 +55,8 @@ export default class SubscriptionBar extends Component {
     }
 
     _getSubcategory() {
+      this.currentCategoryId = "";
+      console.log("getSubCategory");
       if (this.configuredCategory()) {
         this.isLoading = true;
         this.show = true;
