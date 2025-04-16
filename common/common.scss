@@ -14,8 +14,10 @@
     text-align: center;
     padding-right: 5px;
 }
-.div-border{
-    border:solid #faf8fd 2px;
+.input-container{
+    border:solid #faf8fd 1px;
+    display:flex;
+    align-items: center;
 }
 
 .subcategory-bar {
