@@ -105,7 +105,7 @@ export default class SubscriptionBar extends Component {
       }
       console.log(results);
       
-      this.totalPage = Math.ceil(results.length / settins.page_size)
+      this.totalPage = Math.ceil(results.length / settings.page_size)
       this.pages = [];
       for (let i = 1; i <= totalPage; i++) {
         this.pages.push(i);
