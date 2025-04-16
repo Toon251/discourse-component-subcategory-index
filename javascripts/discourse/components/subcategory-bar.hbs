@@ -51,9 +51,9 @@
             
                 {{#each this.filterData as |sc|}}
                     <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                                <span style="font-weight:bold">{{sc.name}}</span>
-                                <span>
-                                    {{sc.description}}
+                                <span class="cat-title">{{sc.name}}</span>
+                                <span class="cat-subtitle">
+                                    : {{sc.description}}
                                 </span>
                             </div>
                 {{/each}}

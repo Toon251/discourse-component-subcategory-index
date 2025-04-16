@@ -51,6 +51,7 @@
 
 .enabled-link {
     color:var(--tertiary);
+    cursor: pointer;
 }
 
 .page-item {
@@ -63,6 +64,7 @@
     min-width: 20px;
 }
 
+
 .page-item-selected {
     border-radius: 5px;
     text-align: center;
@@ -73,6 +75,15 @@
     min-width: 20px;
 }
 
+.cat-title {
+    font-weight: bold;
+    color:var(--tertiary);
+}
+
+.cat-subtitle {
+    font-size:small;
+    color:var(--quaternary);
+}
 .subcategory-bar {
     &__wrapper {
         color: var(--secondary);
