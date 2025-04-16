@@ -56,7 +56,7 @@ export default class SubscriptionBar extends Component {
     }
 
     isCurrentPage (p) {
-      return this.currentPage == p
+      return 1 == p
     }
     
     isLetterFilter(s, f) {
