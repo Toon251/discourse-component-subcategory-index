@@ -64,7 +64,6 @@ export default class SubscriptionBar extends Component {
     
     isLetterFilter(s) {
       if(s !== ""){
-        alert("letterFilter " + s)
         const firstChar = s.toUpperCase().charAt(0);
         const r = firstChar === this.letterFilter || (this.letterFilter === "0-9" && firstChar >= '0' && firstChar <= '9')
         return r
@@ -99,9 +98,9 @@ export default class SubscriptionBar extends Component {
       if(this.noFilter){
         results = this.subcategories;
       }else if(this.letterFilter !== "") {
-        results = this.subcategories.filter(x => this.isLetterFilter(x));
+        results = this.subcategories.filter(x => this.isLetterFilter(x.name));
       }else if(this.wordFilter !== "") {
-        results = this.subcategories.filter(x => this.isWordFilter(x));
+        results = this.subcategories.filter(x => this.isWordFilter(x.name));
       }
       console.log(results);
       alert("filterData : " + results.length);
