@@ -56,6 +56,7 @@ export default class SubscriptionBar extends Component {
     }
 
     isCurrentPage(page) {
+      console.log(this.currentPage, page)
       return this.currentPage === page 
     }
 
