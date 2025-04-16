@@ -152,7 +152,7 @@ export default class SubscriptionBar extends Component {
       window.location.href = url;
     }
 
-    @actions
+    @action
     submitFilter() {
       alert(`Input search: ${this.wordFilter}`);
     }
