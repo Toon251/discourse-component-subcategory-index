@@ -124,7 +124,7 @@ export default class SubscriptionBar extends Component {
           this.filterData = [];
           for(let j = startIndex; j<= startIndex + this.recordsPerPage; j++){
             console.log(j)
-            this.filterData.push(this.results[j]);
+            this.filterData.push(results[j]);
           }
           //const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
          
@@ -185,6 +185,7 @@ export default class SubscriptionBar extends Component {
 
           this.letterIndexes = r[0];
           this.isLoading = false;
+          this._filterData();
         });
 
 
@@ -219,7 +220,7 @@ export default class SubscriptionBar extends Component {
 
       }
 
-      this._filterData();
+      
     }
   
     @action
