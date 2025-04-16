@@ -5,16 +5,18 @@
     {{#conditional-loading-spinner condition=this.isLoading}}
         
         <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
-            <div>
+            <div class="subcategory-bar__container">
                 <input type="text" value={{this.wordFilter}} oninput={{action "handleInputFilter"}}>
                 <button class="btn btn-icon-text btn-primary search-cta" aria-label="Search" type="button" {{action "submitFilter"}}>
                     <svg class="fa d-icon d-icon-magnifying-glass svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#magnifying-glass"></use></svg>      <span class="d-button-label">Search<!----></span>
                 </button>
             </div>
 
-            <div>
-                คำที่ค้นหา : {{this.wordFilter}}
-            </div>
+            {{#if (not (eq this.wordFilter "")) }}
+                <div class="filter-word">
+                    คำที่ค้นหา : "{{this.wordFilter}}""
+                </div>
+            {{/if}}
 
             <div class='subcategory-bar__container'>
                 <div class='subcategory-bar__index'>
