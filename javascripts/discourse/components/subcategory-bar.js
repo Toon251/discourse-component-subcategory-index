@@ -65,13 +65,13 @@ export default class SubscriptionBar extends Component {
       return r
     }
 
-    getTotalFilters() {
+    getTotalFilters(context) {
       if(this.letterFilter !== "") {
 
-        return subcategories.filter(x => this.isLetterFilter(x, this.letterFilter)).length;
+        return subcategories.filter(x => context.isLetterFilter(x, context.letterFilter)).length;
       }
       if(this.wordFilter !== "") {
-        return subcategories.filter(x => this.isWordFilter(x, this.wordFilter)).length;
+        return subcategories.filter(x => context.isWordFilter(x, context.wordFilter)).length;
       }
     }
 
