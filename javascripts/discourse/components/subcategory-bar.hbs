@@ -43,28 +43,13 @@
             <!-- Category list -->
             <div class="subcategory-bar__grid-container">
             
-                {{#each this.subcategories as |sc|}}
-                    {{#if this.noFilter}}
-                        <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                            <span style="font-weight:bold">{{sc.name}}</span>
-                            <span>
-                                {{sc.description}}
-                            </span>
-                        </div>
-                    {{/if}}
-                    {{#if (not (eq this.letterFilter ""))}}
-                
-                        {{#if (this.isLetterFilter sc.name this.letterFilter) }}
-
-
-                            <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
+                {{#each this.filterData as |sc|}}
+                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
                                 <span style="font-weight:bold">{{sc.name}}</span>
                                 <span>
                                     {{sc.description}}
                                 </span>
                             </div>
-                        {{/if}}
-                    {{/if}}
                 {{/each}}
             </div>
             <!-- Page navigation -->

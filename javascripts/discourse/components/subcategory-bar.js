@@ -25,6 +25,7 @@ export default class SubscriptionBar extends Component {
     @tracked currentPage = 1;
     @tracked totalPage = 1;
     @tracked noFilter = true;
+    @tracked filterData;
 
   
 
@@ -61,14 +62,14 @@ export default class SubscriptionBar extends Component {
       return  cp == p
     }
     
-    isLetterFilter(s, f) {
+    isLetterFilter(s) {
       const firstChar = s.toUpperCase().charAt(0);
-      const r = firstChar === f || (f=== "0-9" && firstChar >= '0' && firstChar <= '9')
+      const r = firstChar === this.letterFilter || (this.letterFilter === "0-9" && firstChar >= '0' && firstChar <= '9')
       return r
     }
 
-    isWordFilter(s, w) {
-      const r = w === "" || s.indexOf(w , 0) >=0 ;
+    isWordFilter(s) {
+      const r = s.indexOf(w , 0) >=0 ;
       return r
     }
 
@@ -81,6 +82,18 @@ export default class SubscriptionBar extends Component {
         return subcategories.filter(x => context.isWordFilter(x, context.wordFilter)).length;
       }*/
       return 20;
+    }
+
+    _filterData() {
+      let results;
+      if(this.noFilter){
+        results = this.subcategories;
+      }else if(this.letterFilter !== "") {
+        results = this.subcategories.filter(x => this.isLetterFilter(x));
+      }else if(this.wordFilter !== "") {
+        results = this.subcategories.filter(x => this.isWordFilter(x));
+      }
+      this._filterData = results;
     }
 
     _getSubcategory() {
@@ -167,6 +180,7 @@ export default class SubscriptionBar extends Component {
         this.letterFilter = letter;
         this.wordFilter = "";
         this.noFilter = false;
+        _filterData();
     }
 
     @action
@@ -174,6 +188,7 @@ export default class SubscriptionBar extends Component {
       this.noFilter = true;
       this.letterFilter = "";
       this.wordFilter = "";
+      _filterData();
     }
 
     @action
