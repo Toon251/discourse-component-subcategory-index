@@ -7,7 +7,9 @@
         <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
             <div>
                 <input type="text" value={{this.wordFilter}} oninput={{action "handleInputFilter"}}>
-                <button {{action "submitFilter"}}>ค้นหา</button>
+                <button class="btn btn-icon-text btn-primary search-cta" aria-label="Search" type="button" {{action "submitFilter"}}>
+                    <svg class="fa d-icon d-icon-magnifying-glass svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#magnifying-glass"></use></svg>      <span class="d-button-label">Search<!----></span>
+                </button>
             </div>
 
             <div>
