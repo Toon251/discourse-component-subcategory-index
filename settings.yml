@@ -9,7 +9,7 @@ categoryIds: {
 }
 page_navigate: true
 page_size: {
-  type: number,
+  type: integer,
   description: "Category per page",
   default: 10
 }
