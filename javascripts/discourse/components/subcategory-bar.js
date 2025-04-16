@@ -243,6 +243,7 @@ export default class SubscriptionBar extends Component {
     @action
     goToPage(p) {
       this.currentPage = p;
+      this._filterData();
     }
 
     @action
