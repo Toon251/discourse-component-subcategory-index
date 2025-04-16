@@ -122,7 +122,7 @@ export default class SubscriptionBar extends Component {
           const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
           console.log(startIndex)
           this.filterData = [];
-          for(let j = startIndex; j<= startIndex + this.recordsPerPage; j++){
+          for(let j = startIndex; j<= startIndex + this.recordsPerPage - 1; j++){
             console.log(j)
             this.filterData.push(results[j]);
           }
