@@ -122,6 +122,7 @@ export default class SubscriptionBar extends Component {
         results = this.subcategories.filter(x => this.isWordFilter(x.name));
       }
       console.log(results);
+      console.log(settings.page_size_options);
 
       this.recordsPerPage = settings.page_size;
       if(results !== undefined) {
