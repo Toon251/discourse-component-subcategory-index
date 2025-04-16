@@ -117,8 +117,13 @@ export default class SubscriptionBar extends Component {
 
       const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
       
-
-      this.filterData = [...this.results.slice(startIndex, startIndex + this.recordsPerPage)];
+      if(results.length > 0 ){
+        const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
+        this.filterData = [...records];
+      }else{
+        this.filterData = []
+      }
+      
     }
 
     _getSubcategory() {
