@@ -218,7 +218,12 @@ export default class SubscriptionBar extends Component {
       //alert(`Input search: ${this.wordFilter}`);
       this.letterFilter = "";
       this.wordFilter = this.tmpWordFilter;
-      this.noFilter = false;
+      
+      if(this.tmpWordFilter === "" ) {
+        this.noFilter = true;
+      }else{
+        this.noFilter = false;
+      }
       this._filterData();
     }
 
