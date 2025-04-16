@@ -17,19 +17,19 @@
 
             {{#if this.noFilter }}
                 <div class="filter-word">
-                    แสดงทั้งหมด
+                    ตัวกรอง : แสดงทั้งหมด
                 </div>
             {{/if}}
 
             {{#if (not (eq this.wordFilter "")) }}
                 <div class="filter-word">
-                    ค้นหาคำ "*{{this.wordFilter}}*"
+                    ตัวกรอง : ค้นหาคำ "*{{this.wordFilter}}*"
                 </div>
             {{/if}}
 
             {{#if (not (eq this.letterFilter "")) }}
                 <div class="filter-word">
-                    ค้นหาที่ขึ้นต้นด้วย : "{{this.letterFilter}}"
+                    ตัวกรอง : ค้นหาที่ขึ้นต้นด้วย : "{{this.letterFilter}}"
                 </div>
             {{/if}}
 
