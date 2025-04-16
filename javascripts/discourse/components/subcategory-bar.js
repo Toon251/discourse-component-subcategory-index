@@ -219,6 +219,7 @@ export default class SubscriptionBar extends Component {
       this.letterFilter = "";
       this.wordFilter = this.tmpWordFilter;
       this.noFilter = false;
+      this._filterData();
     }
 
     @action
