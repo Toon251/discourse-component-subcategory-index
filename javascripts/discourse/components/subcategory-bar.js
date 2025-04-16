@@ -60,12 +60,18 @@ export default class SubscriptionBar extends Component {
       return r
     }
 
-    getTotalFilters() {
-      if(this.filterLetter !== "") {
+    isWordFilter(s, w) {
+      const r = w === "" || s.indexOf(w , 0) >=0 ;
+      return r
+    }
 
+    getTotalFilters() {
+      if(this.letterFilter !== "") {
+
+        return subcategories.filter(x => this.isLetterFilter(x, this.letterFilter)).length;
       }
       if(this.wordFilter !== "") {
-
+        return subcategories.filter(x => this.isWordFilter(x, this.wordFilter)).length;
       }
     }
 
