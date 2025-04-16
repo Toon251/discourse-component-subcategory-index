@@ -36,6 +36,18 @@
         gap: 20px;
     }
 
+    &__container_search {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: between;
+        flex-direction: row;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        gap: 20px;
+        background-color: darkgray;
+    }
+
 
     &__grid-container {
         display: grid;
