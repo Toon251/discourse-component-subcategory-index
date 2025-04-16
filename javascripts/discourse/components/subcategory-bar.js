@@ -131,9 +131,31 @@ export default class SubscriptionBar extends Component {
           this.totalPage = Math.ceil(this.records / this.recordsPerPage)
           this.pages = [];
   
-          for (let i = 1; i <= this.totalPage; i++) {
-            this.pages.push(i);
+          /* Generate page index array */
+          
+          if(this.totalPage <=7) {
+            for (let i = 1; i <= this.totalPage; i++) {
+              this.pages.push(i);
+            }
           }
+          if(this.totalPage >7) {
+            this.pages.push(1);
+            if(this.currentPage > 3) {
+              this.pages.push("...");
+            }
+            if(this.currentPage > 3){
+              for (let i = this.currentPage - 1; i <= this.currentPage + 1; i++) {
+                this.pages.push(i);
+              }
+            }
+            if(this.currentPage < this.totalPage-3) {
+              this.pages.push("...");
+            }
+
+            this.pages.push(this.totalPage);
+          }
+
+
   
           const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
           
