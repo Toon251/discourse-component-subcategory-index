@@ -27,6 +27,7 @@ export default class SubscriptionBar extends Component {
     @tracked noFilter = true;
     @tracked filterData;
     @tracked pages = [];
+    @tracked recordsPerPage = 0;
 
   
 
@@ -104,15 +105,20 @@ export default class SubscriptionBar extends Component {
         results = this.subcategories.filter(x => this.isWordFilter(x.name));
       }
       console.log(results);
+
+      this.recordsPerPage = settings.page_size;
       
-      this.totalPage = Math.ceil(results.length / settings.page_size)
+      this.totalPage = Math.ceil(results.length / this.recordsPerPage)
       this.pages = [];
 
       for (let i = 1; i <= this.totalPage; i++) {
         this.pages.push(i);
       }
 
-      this.filterData = [...results];
+      const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
+      
+
+      this.filterData = [...this.records.slice(startIndex, startIndex + this.recordsPerPage)];
     }
 
     _getSubcategory() {
