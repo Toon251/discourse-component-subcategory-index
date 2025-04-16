@@ -71,7 +71,7 @@
                         {{#each this.pages as |p|}}
                             {{#if (not (eq p "..."))}}
                                 <span {{on 'click' (fn this.goToPage p) }} class="{{if (eq this.currentPage p) 'page-item-selected' 'page-item'}}" >
-                                    <span>p</span>
+                                    <span>{{p}}</span>
                                 </span>
                             {{/if}}
                             {{#if (eq p "...")}}
