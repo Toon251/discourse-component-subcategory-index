@@ -66,14 +66,14 @@
                     ก่อนหน้า
                 </div>
                 <div class="page-index">
-                    <span class="{{if (fn this.isCurrentPage 1) 'page-item-selected' 'page-item'}}">
+                    <span class="{{if (eq this.currentpage 1) 'page-item-selected' 'page-item'}}">
                         <a {{on 'click' (fn this.goToPage 1) }}>1</a>
                     </span>
-                    <span class="{{if (fn this.isCurrentPage 2) 'page-item-selected' 'page-item'}}">
+                    <span class="{{if (eq this.currentpage 2) 'page-item-selected' 'page-item'}}">
                         <a {{on 'click' (fn this.goToPage 2) }}>2</a>
                     </span>
                     <span class="page-item">...</span>
-                    <span class="{{if (fn this.isCurrentPage 4) 'page-item-selected' 'page-item'}}">
+                    <span class="{{if (eq this.currentpage 4) 'page-item-selected' 'page-item'}}">
                         <a {{on 'click' (fn this.goToPage 4) }}>4</a>
                     </span>
                 </div>
