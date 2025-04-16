@@ -3,7 +3,17 @@
     <!--<div>Filter : {{this.letterFilter}}</div>-->
     <!--<div>Slug : {{this.parentSlug}}</div>-->
     {{#conditional-loading-spinner condition=this.isLoading}}
+        
         <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
+            <div>
+                <input type="text" value={{this.wordFilter}} oninput={{action "handleInputFilter"}}>
+                <button {{action "submitFilter"}}>ค้นหา</button>
+            </div>
+
+            <div>
+                คำที่ค้นหา : {{this.wordFilter}}
+            </div>
+
             <div class='subcategory-bar__container'>
                 <div class='subcategory-bar__index'>
                     <div>

@@ -20,6 +20,11 @@ export default class SubscriptionBar extends Component {
     @tracked letterIndexes = [];
     @tracked letterFilter = "";
     @tracked parentSlug;
+    @tracked wordFilter = '';
+
+  
+
+  
 
     constructor() {
       super(...arguments);
@@ -145,6 +150,15 @@ export default class SubscriptionBar extends Component {
       const url = "/c/" + this.parentSlug + "/" + slug
       //alert("go " + url);
       window.location.href = url;
+    }
+
+    @actions
+    submitFilter() {
+      alert(`Input search: ${this.wordFilter}`);
+    }
+
+    handleInputFilter(event) {
+      this.wordFilter = event.target.value;
     }
 
   

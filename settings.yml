@@ -7,3 +7,9 @@ categoryIds: {
     description: "List of category IDs",
     default: ""
 }
+page_navigate: true
+page_size: {
+  type: number,
+  description: "Category per page",
+  default: 10
+}
