@@ -32,10 +32,20 @@
 
 }
 .page-index {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    
+}
+
+.page-item {
     padding: 5px;
     border-radius: 5px;
     text-align: center;
-    border:#747272;
+    border:#f7ab09 1px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
 }
 
 .subcategory-bar {
