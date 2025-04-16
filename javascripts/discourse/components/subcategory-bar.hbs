@@ -61,26 +61,23 @@
             <!-- Page navigation -->
             <div class='subcategory-bar__container_pagination'>
                 <div class="page-head">
-                    หน้า {{this.currentPage}}/{{this.totalPage}} จาก {{getTotalFilters}} รายการ
+                    หน้า {{this.currentPage}}/{{this.totalPage}} จาก {{this.filterData.length}} รายการ
                 </div>
                 <div class="page-navigator">
                     <div>
                         ก่อนหน้า
                     </div>
                     <div class="page-index" >
-                        <span {{on 'click' (fn this.goToPage 1) }} class="{{if (eq this.currentPage 1) 'page-item-selected' 'page-item'}}" >
-                            <span>1</span>
-        
-                        </span>
-                        <span {{on 'click' (fn this.goToPage 2) }} class="{{if (eq this.currentPage 2) 'page-item-selected' 'page-item'}}">
-                            <span>2</span>
-                        
-                        </span>
-                        <span class="page-item">...</span>
-                        <span {{on 'click' (fn this.goToPage 4) }}  class="{{if (eq this.currentPage 4) 'page-item-selected' 'page-item'}}">
-                            <span>4</span>
-                        
-                        </span>
+                        {{#each this.pages as |p|}}
+                            {{#if (not (eq p "..."))}}
+                                <span {{on 'click' (fn this.goToPage 1) }} class="{{if (eq this.currentPage 1) 'page-item-selected' 'page-item'}}" >
+                                    <span>1</span>
+                                </span>
+                            {{/if}}
+                            {{#if (eq p "...")}}
+                                <span class="page-item">...</span>
+                            {{/if}}
+                        {{/each}}
                     </div>
                     <div>
                         ถัดไป

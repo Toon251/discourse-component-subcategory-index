@@ -26,6 +26,7 @@ export default class SubscriptionBar extends Component {
     @tracked totalPage = 1;
     @tracked noFilter = true;
     @tracked filterData;
+    @tracked pages = [];
 
   
 
@@ -103,6 +104,13 @@ export default class SubscriptionBar extends Component {
         results = this.subcategories.filter(x => this.isWordFilter(x.name));
       }
       console.log(results);
+      
+      this.totalPage = Math.ceil(results.length / settins.page_size)
+      this.pages = [];
+      for (let i = 1; i <= totalPage; i++) {
+        this.pages.push(i);
+      }
+
       this.filterData = [...results];
     }
 
@@ -182,6 +190,8 @@ export default class SubscriptionBar extends Component {
         this.noFilter = true;
 
       }
+
+      this._filterData();
     }
   
     @action
