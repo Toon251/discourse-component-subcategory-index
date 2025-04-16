@@ -140,6 +140,13 @@ export default class SubscriptionBar extends Component {
           }
           if(this.totalPage >7) {
             this.pages.push(1);
+
+            if(this.currentPage <= 3) {
+              for (let i = 2; i <= 3; i++) {
+                this.pages.push(i);
+              }
+            }
+
             if(this.currentPage > 3) {
               this.pages.push("...");
             }
@@ -150,6 +157,12 @@ export default class SubscriptionBar extends Component {
             }
             if(this.currentPage < this.totalPage-3) {
               this.pages.push("...");
+            }
+
+            if(this.currentPage >= this.totalPage-3) {
+              for (let i = this.totalPage-3; i < this.totalPage; i++) {
+                this.pages.push(i);
+              }
             }
 
             this.pages.push(this.totalPage);
