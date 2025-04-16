@@ -63,7 +63,7 @@
                 <div class="page-size-selection">
                     <label for="size-list">แสดง:</label>
                     <select id="size-list" class="pagesize-dropdown">
-                        {{#each settings.page_size_options as |s|}}
+                        {{#each this.pageSizeOptions as |s|}}
                             <option value="{{s}}">{{s}}</option>
                         {{/each}}
                     </select>

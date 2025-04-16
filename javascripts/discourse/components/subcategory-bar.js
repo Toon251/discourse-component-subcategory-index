@@ -29,6 +29,7 @@ export default class SubscriptionBar extends Component {
     @tracked pages = [];
     @tracked recordsPerPage = 0;
     @tracked records = 0;
+    @tracked pageSizeOptions = [];
 
   
 
@@ -111,6 +112,8 @@ export default class SubscriptionBar extends Component {
       }*/
       return 20;
     }
+
+
 
     _filterData() {
       let results;
@@ -239,6 +242,7 @@ export default class SubscriptionBar extends Component {
 
           this.letterIndexes = r[0];
           this.isLoading = false;
+          this.pageSizeOptions = settings.page_size_options.split("|");
           this._filterData();
         });
 
