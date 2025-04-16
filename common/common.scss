@@ -33,6 +33,9 @@
     color: white;
 
 }
+.page-head {
+    color: white
+}
 .page-index {
     display: flex;
     flex-direction: row;
@@ -99,7 +102,7 @@
 
     &__container_pagination {
         width: 100%;
-        border: solid #494747 1px ;
+        //border: solid #494747 1px ;
         display: flex;
         align-items: center;
         justify-content: flex-end;
