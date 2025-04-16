@@ -20,9 +20,11 @@ export default class SubscriptionBar extends Component {
     @tracked letterIndexes = [];
     @tracked letterFilter = "";
     @tracked parentSlug;
-    @tracked wordFilter = '';
+    @tracked wordFilter = "";
+    @tracked tmpWordFilter = "";
     @tracked currentPage = 1;
     @tracked totalPage = 1;
+    @tracked noFilter = true;
 
   
 
@@ -152,6 +154,8 @@ export default class SubscriptionBar extends Component {
         this.letterFilter = "";
         this.currentPage = 1;
         this.totalPage = 1;
+        this.tmpWordFilter = "";
+        this.noFilter = true;
 
       }
     }
@@ -161,6 +165,14 @@ export default class SubscriptionBar extends Component {
         //alert("Letter is " + letter);
         this.letterFilter = letter;
         this.wordFilter = "";
+        this.noFilter = false;
+    }
+
+    @action
+    setNoFilter() {
+      this.noFilter = true;
+      this.letterFilter = "";
+      this.wordFilter = "";
     }
 
     @action
@@ -179,11 +191,13 @@ export default class SubscriptionBar extends Component {
     submitFilter() {
       //alert(`Input search: ${this.wordFilter}`);
       this.letterFilter = "";
+      this.wordFilter = this.tmpWordFilter;
+      this.noFilter = false;
     }
 
     @action
     handleInputFilter(event) {
-      this.wordFilter = event.target.value;
+      this.tmpWordFilter = event.target.value;
     }
 
   

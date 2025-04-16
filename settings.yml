@@ -11,5 +11,5 @@ page_navigate: true
 page_size: {
   type: integer,
   description: "Category per page",
-  default: 10
+  default: 2
 }
