@@ -24,6 +24,18 @@
     margin-bottom: 0px !important;
 }
 
+.page-navigator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.page-index {
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .subcategory-bar {
     &__wrapper {
         color: var(--secondary);
@@ -60,6 +72,7 @@
 
     &__container_pagination {
         width: 100%;
+        border: solid #f6f3f3 1px ;
         display: flex;
         align-items: center;
         justify-content: flex-end;
