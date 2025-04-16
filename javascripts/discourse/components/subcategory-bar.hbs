@@ -59,17 +59,23 @@
         </div>
         <div class='subcategory-bar__container_pagination'>
             <div>
-                ทั้งหมด 141-160 จาก {{getTotalFilters}} รายการ
+                หน้า {{this.currentPage}}/{{this.totalPage}} จาก {{getTotalFilters}} รายการ
             </div>
             <div class="page-navigator">
                 <div>
                     ก่อนหน้า
                 </div>
                 <div class="page-index">
-                    <span class="page-item">1</span>
-                    <span class="page-item">2</span>
+                    <span class="page-item">
+                        <a {{on 'click' (fn this.goToPage 1) }}>1</a>
+                    </span>
+                    <span class="page-item">
+                        <a {{on 'click' (fn this.goToPage 2) }}>2</a>
+                    </span>
                     <span class="page-item">...</span>
-                    <span class="page-item">4</span>
+                    <span class="page-item">
+                        <a {{on 'click' (fn this.goToPage 4) }}>4</a>
+                    </span>
                 </div>
                 <div>
                     ถัดไป

@@ -22,6 +22,7 @@ export default class SubscriptionBar extends Component {
     @tracked parentSlug;
     @tracked wordFilter = '';
     @tracked currentPage = 1;
+    @tracked totalPage = 1;
 
   
 
@@ -147,6 +148,7 @@ export default class SubscriptionBar extends Component {
         this.wordFilter = "";
         this.letterFilter = "";
         this.currentPage = 1;
+        this.totalPage = 1;
 
       }
     }
@@ -156,6 +158,11 @@ export default class SubscriptionBar extends Component {
         //alert("Letter is " + letter);
         this.letterFilter = letter;
         this.wordFilter = "";
+    }
+
+    @action
+    goToPage(p) {
+      this.currentPage = p;
     }
 
     @action
