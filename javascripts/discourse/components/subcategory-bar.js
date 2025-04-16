@@ -74,7 +74,7 @@ export default class SubscriptionBar extends Component {
 
     isWordFilter(s) {
       if(s !== "") {
-        const r = s.indexOf(w , 0) >=0 ;
+        const r = s.indexOf(this.wordFilter , 0) ===0 ;
         return r
       }
 
