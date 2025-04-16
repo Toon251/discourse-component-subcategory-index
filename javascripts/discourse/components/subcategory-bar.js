@@ -28,6 +28,7 @@ export default class SubscriptionBar extends Component {
     @tracked filterData;
     @tracked pages = [];
     @tracked recordsPerPage = 0;
+    @tracked records = 0;
 
   
 
@@ -108,19 +109,23 @@ export default class SubscriptionBar extends Component {
 
       this.recordsPerPage = settings.page_size;
       
-      this.totalPage = Math.ceil(results.length / this.recordsPerPage)
-      this.pages = [];
-
-      for (let i = 1; i <= this.totalPage; i++) {
-        this.pages.push(i);
-      }
-
-      const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
-      
       if(results.length > 0 ){
+        this.records = results.length;
+      
+        this.totalPage = Math.ceil(this.records / this.recordsPerPage)
+        this.pages = [];
+
+        for (let i = 1; i <= this.totalPage; i++) {
+          this.pages.push(i);
+        }
+
+        const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
+        
         const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
         this.filterData = [...records];
       }else{
+        this.records = 0;
+        this.pages = [];
         this.filterData = []
       }
       
