@@ -123,7 +123,7 @@ export default class SubscriptionBar extends Component {
           
           this.filterData = [];
           for(let j = startIndex; j<= startIndex + this.recordsPerPage - 1; j++){
-            if(results[j] !== ""){
+            if(results[j] !== "" && results[j] !== undefined){
               this.filterData.push(results[j]);
             }
             
