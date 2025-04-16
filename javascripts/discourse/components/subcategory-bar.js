@@ -103,8 +103,7 @@ export default class SubscriptionBar extends Component {
         results = this.subcategories.filter(x => this.isWordFilter(x.name));
       }
       console.log(results);
-      alert("filterData : " + results.length);
-      this._filterData = [...results];
+      this.filterData = [...results];
     }
 
     _getSubcategory() {
