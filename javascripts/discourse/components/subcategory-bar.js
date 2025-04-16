@@ -108,26 +108,35 @@ export default class SubscriptionBar extends Component {
       console.log(results);
 
       this.recordsPerPage = settings.page_size;
-      
-      if(results.length > 0 ){
-        this.records = results.length;
-      
-        this.totalPage = Math.ceil(this.records / this.recordsPerPage)
-        this.pages = [];
-
-        for (let i = 1; i <= this.totalPage; i++) {
-          this.pages.push(i);
-        }
-
-        const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
+      if(results !== undefined) {
+        if(results.length > 0 ){
+          this.records = results.length;
         
-        const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
-        this.filterData = [...records];
+          this.totalPage = Math.ceil(this.records / this.recordsPerPage)
+          this.pages = [];
+  
+          for (let i = 1; i <= this.totalPage; i++) {
+            this.pages.push(i);
+          }
+  
+          const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
+          this.filterData = [];
+          for(let j = startIndex; j<= startIndex + this.recordsPerPage; j++){
+            this.filterData.push(this.resuls[j]);
+          }
+          //const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
+         
+        }else{
+          this.records = 0;
+          this.pages = [];
+          this.filterData = []
+        }
       }else{
         this.records = 0;
         this.pages = [];
         this.filterData = []
       }
+      
       
     }
 
