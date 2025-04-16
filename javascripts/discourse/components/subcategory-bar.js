@@ -229,6 +229,7 @@ export default class SubscriptionBar extends Component {
         this.letterFilter = letter;
         this.wordFilter = "";
         this.noFilter = false;
+        this.currentPage = 1;
         this._filterData();
     }
 
@@ -237,6 +238,7 @@ export default class SubscriptionBar extends Component {
       this.noFilter = true;
       this.letterFilter = "";
       this.wordFilter = "";
+      this.currentPage = 1;
       this._filterData();
     }
 
@@ -264,6 +266,7 @@ export default class SubscriptionBar extends Component {
       }else{
         this.noFilter = false;
       }
+      this.currentPage = 1;
       this._filterData();
     }
 
