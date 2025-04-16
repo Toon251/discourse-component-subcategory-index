@@ -55,6 +55,10 @@ export default class SubscriptionBar extends Component {
       return /Mobi|Android/i.test(navigator.userAgent);
     }
 
+    isCurrentPage(currentPage, page) {
+      return currentPage === page 
+    }
+
     
     isLetterFilter(s, f) {
       const r = f === "" || s.toUpperCase().charAt(0) === f;
