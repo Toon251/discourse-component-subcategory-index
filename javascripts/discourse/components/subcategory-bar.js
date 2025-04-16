@@ -180,7 +180,7 @@ export default class SubscriptionBar extends Component {
         this.letterFilter = letter;
         this.wordFilter = "";
         this.noFilter = false;
-        _filterData();
+        this._filterData();
     }
 
     @action
@@ -188,7 +188,7 @@ export default class SubscriptionBar extends Component {
       this.noFilter = true;
       this.letterFilter = "";
       this.wordFilter = "";
-      _filterData();
+      this._filterData();
     }
 
     @action
