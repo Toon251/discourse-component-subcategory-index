@@ -15,6 +15,12 @@
                 </button>
             </div>
 
+            {{#if this.noFilter }}
+                <div class="filter-word">
+                    แสดงทั้งหมด
+                </div>
+            {{/if}}
+
             {{#if (not (eq this.wordFilter "")) }}
                 <div class="filter-word">
                     ค้นหาคำ "*{{this.wordFilter}}*"
