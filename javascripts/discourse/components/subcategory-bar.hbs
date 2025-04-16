@@ -60,6 +60,14 @@
             </div>
             <!-- Page navigation -->
             <div class='subcategory-bar__container_pagination'>
+                <div class="page-size-selection">
+                    <label for="size-list">แสดง:</label>
+                    <select id="size-list" class="pagesize-dropdown">
+                        {{#each settings.page_size_options as |s|}}
+                            <option value="{{s}}">{{s}}</option>
+                        {{/each}}
+                    </select>
+                </div>
                 <div class="page-head">
                     <span>หน้า {{this.currentPage}}/{{this.totalPage}}</span> 
                     <span>ทั้งหมด {{this.records}} รายการ</span>

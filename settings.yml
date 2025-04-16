@@ -11,5 +11,10 @@ page_navigate: true
 page_size: {
   type: integer,
   description: "Category per page",
-  default: 2
+  default: 5
+}
+page_size_options: {
+    type: list,
+    description: "List of page size options",
+    default: ["5", "10", "20", "50", "100"]
 }
