@@ -30,6 +30,7 @@
     align-items: center;
     justify-items: flex-end;
     gap: 10px;
+    color: white;
 
 }
 .page-index {
@@ -67,7 +68,9 @@
         border-radius: 5px; /* Slightly rounded corners */
         margin-left: 0px;
         margin-right: 0px;
-        gap:20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px; /* ปรับค่าตามต้องการ */
     }
 
     &__container {
