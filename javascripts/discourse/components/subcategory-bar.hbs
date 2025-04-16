@@ -61,10 +61,11 @@
             <!-- Page navigation -->
             <div class='subcategory-bar__container_pagination'>
                 <div class="page-head">
-                    หน้า {{this.currentPage}}/{{this.totalPage}} ทั้งหมด {{this.records}} รายการ
+                    <span>หน้า {{this.currentPage}}/{{this.totalPage}}</span> 
+                    <span>ทั้งหมด {{this.records}} รายการ</span>
                 </div>
                 <div class="page-navigator">
-                    <div>
+                    <div {{on 'click' this.prevPage}} class="{{if (eq this.currentPage 1) 'disabled-link' 'enabled-link'}}">
                         ก่อนหน้า
                     </div>
                     <div class="page-index" >
@@ -79,7 +80,7 @@
                             {{/if}}
                         {{/each}}
                     </div>
-                    <div>
+                    <div {{on 'click' this.nextPage}} class="{{if (eq this.currentPage this.totalPage) 'disabled-link' 'enabled-link'}}">
                         ถัดไป
                     </div>
                 </div>

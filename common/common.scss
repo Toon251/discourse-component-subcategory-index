@@ -34,6 +34,9 @@
 
 }
 .page-head {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
     color: white
 }
 .page-index {
@@ -41,6 +44,13 @@
     flex-direction: row;
     gap: 10px;
     
+}
+.disabled-link {
+    color:#f6f3f3;
+}
+
+.enabled-link {
+    color:var(--secondary);
 }
 
 .page-item {

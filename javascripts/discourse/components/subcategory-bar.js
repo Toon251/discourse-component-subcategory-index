@@ -75,6 +75,22 @@ export default class SubscriptionBar extends Component {
       
     }
 
+    @action
+    prevPage() {
+      if(this.currentPage > 1) {
+        this.currentPage -= 1;
+      }
+      this._filterData();
+    }
+
+    @action
+    nextPage() {
+      if(this.currentPage < this.totalPage) {
+        this.currentPage += 1;
+      }
+      this._filterData();
+    }
+
     isWordFilter(s) {
       if(s !== "") {
         const r = s.indexOf(this.wordFilter , 0) ===0 ;
