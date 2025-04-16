@@ -55,6 +55,7 @@ export default class SubscriptionBar extends Component {
       return /Mobi|Android/i.test(navigator.userAgent);
     }
 
+    @computed
     isCurrentPage(page) {
       console.log(this.currentPage, page)
       return this.currentPage === page 
