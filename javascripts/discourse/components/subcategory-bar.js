@@ -157,6 +157,7 @@ export default class SubscriptionBar extends Component {
       alert(`Input search: ${this.wordFilter}`);
     }
 
+    @action
     handleInputFilter(event) {
       this.wordFilter = event.target.value;
     }
