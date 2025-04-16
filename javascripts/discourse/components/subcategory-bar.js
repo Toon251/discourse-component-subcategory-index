@@ -62,7 +62,7 @@ export default class SubscriptionBar extends Component {
     }
     
     isLetterFilter(s, f) {
-      firstChar = s.toUpperCase().charAt(0);
+      const firstChar = s.toUpperCase().charAt(0);
       const r = firstChart === f || (f=== "0-9" && firstChar >= '0' && firstChar <= '9')
       return r
     }
