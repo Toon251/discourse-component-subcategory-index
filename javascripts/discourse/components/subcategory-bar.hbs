@@ -17,7 +17,13 @@
 
             {{#if (not (eq this.wordFilter "")) }}
                 <div class="filter-word">
-                    คำที่ค้นหา : "{{this.wordFilter}}""
+                    ค้นหาคำ "*{{this.wordFilter}}*"
+                </div>
+            {{/if}}
+
+            {{#if (not (eq this.letterFilter "")) }}
+                <div class="filter-word">
+                    ค้นหาที่ขึ้นต้นด้วย : "{{this.letterFilter}}"
                 </div>
             {{/if}}
 
@@ -50,6 +56,20 @@
                     </div>
                 {{/if}}
             {{/each}}
+        </div>
+        <div class='subcategory-bar__container_pagination'>
+            <div>
+                ทั้งหมด 141-160 จาก {{getTotalFilters}} รายการ
+            </div>
+            <div>
+                <div>
+                    ก่อนหน้า
+                </div>
+                <div>
+                    ถัดไป
+                </div>
+            </div>
+
         </div>
     {{/conditional-loading-spinner}}
 {{else}}

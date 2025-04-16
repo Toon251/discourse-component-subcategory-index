@@ -21,6 +21,7 @@ export default class SubscriptionBar extends Component {
     @tracked letterFilter = "";
     @tracked parentSlug;
     @tracked wordFilter = '';
+    @tracked currentPage = 1;
 
   
 
@@ -59,10 +60,18 @@ export default class SubscriptionBar extends Component {
       return r
     }
 
+    getTotalFilters() {
+      if(this.filterLetter !== "") {
+
+      }
+      if(this.wordFilter !== "") {
+
+      }
+    }
+
     _getSubcategory() {
       this.currentCategoryId = 0;
-      console.log("getSubCategory");
-      console.log(this.currentCategoryId);
+      
 
       if (this.configuredCategory()) {
         this.isLoading = true;
@@ -102,16 +111,8 @@ export default class SubscriptionBar extends Component {
           //console.log(r[0]);
 
           this.letterIndexes = r[0];
-
           this.isLoading = false;
         });
-
-        
-
-
-
-        
-
 
 
         /*this.galleryOnly = this.configuredCategory().galleryOnly;
@@ -136,6 +137,10 @@ export default class SubscriptionBar extends Component {
       } else {
         this.isLoading = false;
         this.show = false;
+        this.wordFilter = "";
+        this.letterFilter = "";
+        this.currentPage = 1;
+
       }
     }
   
@@ -143,6 +148,7 @@ export default class SubscriptionBar extends Component {
     filterLetter(letter) {
         //alert("Letter is " + letter);
         this.letterFilter = letter;
+        this.wordFilter = "";
     }
 
     @action
@@ -154,7 +160,8 @@ export default class SubscriptionBar extends Component {
 
     @action
     submitFilter() {
-      alert(`Input search: ${this.wordFilter}`);
+      //alert(`Input search: ${this.wordFilter}`);
+      this.letterFilter = "";
     }
 
     @action
