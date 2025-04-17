@@ -48,15 +48,29 @@
             </div>
             <!-- Category list -->
             <div class="subcategory-bar__grid-container">
-            
-                {{#each this.filterData as |sc|}}
-                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                                <span class="cat-title">{{sc.name}}</span>
+                <table width="100%">
+                    <tr>
+                        <th width="30%">Listed</th>
+                        <th width="70%">Description</th>
+                    </th>
+                    
+                    {{#each this.filterData as |sc|}}
+                        <tr>
+                            <td>
+                                <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
+                                    <span class="cat-title">{{sc.name}}</span>
+                                </div>
+                            </td>
+                            <td>
                                 <span class="cat-subtitle">
-                                    : {{sc.description}}
+                                    {{sc.description}}
                                 </span>
-                            </div>
-                {{/each}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </table>
+            
+                
             </div>
             <!-- Page navigation -->
             <div class='subcategory-bar__container_pagination'>
