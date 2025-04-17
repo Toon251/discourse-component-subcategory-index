@@ -71,6 +71,14 @@
     cursor: pointer;
 }
 
+.col-name {
+    min-width: 50px;
+}
+
+.col-desc {
+    min-width: 10px;
+}
+
 .page-item {
     //border-radius: 5px;
     text-align: center;
