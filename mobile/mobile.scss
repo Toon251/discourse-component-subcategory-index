@@ -140,8 +140,8 @@
 
     &__container_pagination {
         width: 100%;
-        display: grid;
-        grid-template-columns: repeat(1, 1fr); /* 2 equal columns */
+        display: flex;
+        flex-direction: column;
         gap: 4px; /* Space between grid items */
         padding: 4px; /* Padding around the grid container */
         gap: 20px;
