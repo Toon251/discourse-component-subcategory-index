@@ -27,7 +27,7 @@
 .page-navigator {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
     justify-items: flex-end;
     gap: 10px;
     color: white;
@@ -43,6 +43,7 @@
 .page-option {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 10px;
     color: white
 }
@@ -50,6 +51,7 @@
 .page-head {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 10px;
     color: white
 }
