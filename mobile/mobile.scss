@@ -152,14 +152,14 @@
 
 
     &__grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-        gap: 4px; /* Space between grid items */
+        display: flex;
+        flex-direction: column;
+        gap: 1px; /* Space between grid items */
         padding: 4px; /* Padding around the grid container */
     }
 
     &__grid-item {
-        background-color: rgb(29, 31, 31);
+        //background-color: rgb(29, 31, 31);
         padding: 5px;
         text-align: left;
         /*border: 1px solid #ccc;*/
