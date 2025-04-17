@@ -25,9 +25,11 @@
 }
 
 .page-navigator {
+    border:1px #0056b3 solid;
+    width:100%;
     display: flex;
     flex-direction: row;
-    align-items: end;
+    align-items: center;
     justify-items: flex-end;
     gap: 10px;
     color: white;
