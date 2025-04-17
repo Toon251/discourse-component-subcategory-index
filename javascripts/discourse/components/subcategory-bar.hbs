@@ -49,7 +49,7 @@
             <!-- Category list -->
             <div class="subcategory-bar__grid-container">
             
-                {{#each this.sortedData as |sc|}}
+                {{#each this.filterData as |sc|}}
                     <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
                                 <span class="cat-title">{{sc.name}}</span>
                                 <span class="cat-subtitle">

@@ -185,13 +185,15 @@ export default class SubscriptionBar extends Component {
   
           const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
           
-          this.filterData = [];
+          let arr  = [];
           for(let j = startIndex; j<= startIndex + this.recordsPerPage - 1; j++){
             if(results[j] !== "" && results[j] !== undefined){
-              this.filterData.push(results[j]);
+              arr.push(results[j]);
             }
             
           }
+
+          this.filterData = _sortedData(arr);
           //const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
          
         }else{
@@ -208,8 +210,8 @@ export default class SubscriptionBar extends Component {
       
     }
 
-    sortedData() {
-      return this.filterData.slice().sort((a, b) => {
+    _sortedData(arr) {
+      return arr.slice().sort((a, b) => {
         if (a.name < b.name) return -1; // Adjust criteria for sorting
         if (a.name > b.name) return 1;
         return 0;
