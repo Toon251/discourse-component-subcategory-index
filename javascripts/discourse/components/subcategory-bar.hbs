@@ -61,12 +61,12 @@
             <!-- Page navigation -->
             <div class='subcategory-bar__container_pagination'>
                 <div class="page-size-selection">
-                    {{this.recordPerPage}}
+                    {{this.recordsPerPage}}
                     <ComboBox
                         @id="pageSize"
                         @valueProperty="value"
                         @content={{this.pageSizeOptions}}
-                        @value={{this.recordPerPage}}
+                        @value={{this.recordsPerPage}}
                         @onChange={{action "onPageSizeChange"}}
                         />
                 </div>
