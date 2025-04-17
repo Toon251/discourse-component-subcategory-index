@@ -92,6 +92,14 @@ export default class SubscriptionBar extends Component {
       this._filterData();
     }
 
+    @action
+    onPageSizeChange(pageSize) {
+      if (pageSize) {
+        this.recordsPerPage = pageSize;
+        this._filterData();
+      }
+    }
+
     isWordFilter(s) {
       if(s !== "") {
         const r = s.indexOf(this.wordFilter , 0) ===0 ;
