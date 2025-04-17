@@ -193,7 +193,11 @@ export default class SubscriptionBar extends Component {
             
           }
 
-          this.filterData = _sortedData(arr);
+          this.filterData = arr.slice().sort((a, b) => {
+            if (a.name < b.name) return -1; // Adjust criteria for sorting
+            if (a.name > b.name) return 1;
+            return 0;
+          });
           //const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
          
         }else{
@@ -210,13 +214,7 @@ export default class SubscriptionBar extends Component {
       
     }
 
-    _sortedData(arr) {
-      return arr.slice().sort((a, b) => {
-        if (a.name < b.name) return -1; // Adjust criteria for sorting
-        if (a.name > b.name) return 1;
-        return 0;
-      });
-    }
+    
 
     _getSubcategory() {
       this.currentCategoryId = 0;
