@@ -49,25 +49,30 @@
             <!-- Category list -->
             <div class="subcategory-bar__grid-container">
                 <table width="100%">
-                    <tr>
-                        <th width="30%">Listed</th>
-                        <th width="70%">Description</th>
-                    </th>
-                    
-                    {{#each this.filterData as |sc|}}
+                    <thead>
                         <tr>
-                            <td>
-                                <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                                    <span class="cat-title">{{sc.name}}</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="cat-subtitle">
-                                    {{sc.description}}
-                                </span>
-                            </td>
+                            <th width="30%">Listed</th>
+                            <th width="70%">Description</th>
                         </tr>
-                    {{/each}}
+                    </thead>
+                    
+                    <tbody>
+                        {{#each this.filterData as |sc|}}
+                            <tr>
+                                <td>
+                                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
+                                        <span class="cat-title">{{sc.name}}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="cat-subtitle">
+                                        {{sc.description}}
+                                    </span>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                    
                 </table>
             
                 
