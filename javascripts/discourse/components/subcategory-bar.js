@@ -99,15 +99,6 @@ export default class SubscriptionBar extends Component {
       this._filterData();
     }
 
-    getPageSizeOptions() {
-      let opts = [];
-
-
-      return [
-        { name: i18n("search.advanced.post.time.before"), value: "before" },
-        { name: i18n("search.advanced.post.time.after"), value: "after" },
-      ].concat(..._extraOptions.map((eo) => eo.postTimeOptions).filter(Boolean));
-    }
 
     isWordFilter(s) {
       if(s !== "") {
@@ -144,12 +135,12 @@ export default class SubscriptionBar extends Component {
       console.log(results);
       console.log(settings.page_size_options);
 
-      this.recordsPerPage = {name: settings.page_size ,  value: settings.page_size};
+      this.recordsPerPage = settings.page_size;
       if(results !== undefined) {
         if(results.length > 0 ){
           this.records = results.length;
         
-          this.totalPage = Math.ceil(this.records / this.recordsPerPage.value)
+          this.totalPage = Math.ceil(this.records / this.recordsPerPage)
           this.pages = [];
   
           /* Generate page index array */
@@ -191,10 +182,10 @@ export default class SubscriptionBar extends Component {
 
 
   
-          const startIndex = (this.currentPage - 1) * this.recordsPerPage.value; // คำนวณตำแหน่งเริ่มต้น
+          const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
           
           this.filterData = [];
-          for(let j = startIndex; j<= startIndex + this.recordsPerPage.value - 1; j++){
+          for(let j = startIndex; j<= startIndex + this.recordsPerPage - 1; j++){
             if(results[j] !== "" && results[j] !== undefined){
               this.filterData.push(results[j]);
             }
