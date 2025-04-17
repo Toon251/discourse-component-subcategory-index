@@ -94,10 +94,9 @@ export default class SubscriptionBar extends Component {
 
     @action
     onPageSizeChange(pageSize) {
-      if (pageSize) {
-        this.recordsPerPage = pageSize;
-        this._filterData();
-      }
+      console.log(pageSize);
+      this.recordsPerPage = pageSize;
+      this._filterData();
     }
 
     getPageSizeOptions() {
@@ -145,12 +144,12 @@ export default class SubscriptionBar extends Component {
       console.log(results);
       console.log(settings.page_size_options);
 
-      this.recordsPerPage = settings.page_size;
+      this.recordsPerPage = {name: settings.page_size ,  value: settings.page_size};
       if(results !== undefined) {
         if(results.length > 0 ){
           this.records = results.length;
         
-          this.totalPage = Math.ceil(this.records / this.recordsPerPage)
+          this.totalPage = Math.ceil(this.records / this.recordsPerPage.value)
           this.pages = [];
   
           /* Generate page index array */
@@ -192,10 +191,10 @@ export default class SubscriptionBar extends Component {
 
 
   
-          const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
+          const startIndex = (this.currentPage - 1) * this.recordsPerPage.value; // คำนวณตำแหน่งเริ่มต้น
           
           this.filterData = [];
-          for(let j = startIndex; j<= startIndex + this.recordsPerPage - 1; j++){
+          for(let j = startIndex; j<= startIndex + this.recordsPerPage.value - 1; j++){
             if(results[j] !== "" && results[j] !== undefined){
               this.filterData.push(results[j]);
             }
