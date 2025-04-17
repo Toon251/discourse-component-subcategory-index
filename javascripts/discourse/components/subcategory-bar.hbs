@@ -62,11 +62,6 @@
             <div class='subcategory-bar__container_pagination'>
                 <div class="page-size-selection">
                     <label for="size-list">แสดง:</label>
-                    <select id="size-list" class="pagesize-dropdown">
-                        {{#each this.pageSizeOptions as |s|}}
-                            <option value="{{s}}">{{s}}</option>
-                        {{/each}}
-                    </select>
                     <ComboBox
                         @id="pageSize"
                         @valueProperty="value"

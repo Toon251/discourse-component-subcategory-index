@@ -100,6 +100,16 @@ export default class SubscriptionBar extends Component {
       }
     }
 
+    getPageSizeOptions() {
+      let opts = [];
+
+
+      return [
+        { name: i18n("search.advanced.post.time.before"), value: "before" },
+        { name: i18n("search.advanced.post.time.after"), value: "after" },
+      ].concat(..._extraOptions.map((eo) => eo.postTimeOptions).filter(Boolean));
+    }
+
     isWordFilter(s) {
       if(s !== "") {
         const r = s.indexOf(this.wordFilter , 0) ===0 ;
@@ -250,7 +260,10 @@ export default class SubscriptionBar extends Component {
 
           this.letterIndexes = r[0];
           this.isLoading = false;
-          this.pageSizeOptions = settings.page_size_options.split("|");
+          let sizes  = settings.page_size_options.split("|");
+          this.pageSizeOptions = [];
+
+          sizes.forEach((s) => this.pageSizeOptions.push({ name: s, value: s }));
           this._filterData();
         });
 
