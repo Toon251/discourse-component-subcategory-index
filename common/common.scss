@@ -159,9 +159,9 @@
 
 
     &__grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-        gap: 4px; /* Space between grid items */
+        //display: grid;
+        //grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+        //gap: 4px; /* Space between grid items */
         padding: 4px; /* Padding around the grid container */
     }
 
