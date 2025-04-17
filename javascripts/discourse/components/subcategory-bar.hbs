@@ -60,20 +60,23 @@
             </div>
             <!-- Page navigation -->
             <div class='subcategory-bar__container_pagination'>
-                <div class="page-size-selection">
+                <div class="page-option">
+                    <div class="page-size-selection">
                     <div>แสดง</div>
-                    <ComboBox
-                        @id="pageSize"
-                        @valueProperty="value"
-                        @content={{this.pageSizeOptions}}
-                        @value={{this.recordsPerPage}}
-                        @onChange={{action "onPageSizeChange"}}
-                        />
+                        <ComboBox
+                            @id="pageSize"
+                            @valueProperty="value"
+                            @content={{this.pageSizeOptions}}
+                            @value={{this.recordsPerPage}}
+                            @onChange={{action "onPageSizeChange"}}
+                            />
+                    </div>
+                    <div class="page-head">
+                        <span>หน้า {{this.currentPage}}/{{this.totalPage}}</span> 
+                        <span>ทั้งหมด {{this.records}} รายการ</span>
+                    </div>
                 </div>
-                <div class="page-head">
-                    <span>หน้า {{this.currentPage}}/{{this.totalPage}}</span> 
-                    <span>ทั้งหมด {{this.records}} รายการ</span>
-                </div>
+                
                 <div class="page-navigator">
                     <div {{on 'click' this.prevPage}} class="{{if (eq this.currentPage 1) 'disabled-link' 'enabled-link'}}">
                         ก่อนหน้า

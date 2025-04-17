@@ -40,6 +40,13 @@
     gap: 10px;
     color: white
 }
+.page-option {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: white
+}
+
 .page-head {
     display: flex;
     flex-direction: row;
@@ -130,13 +137,10 @@
 
     &__container_pagination {
         width: 100%;
-        //border: solid #494747 1px ;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-direction: row;
-        margin-top: 0px;
-        margin-bottom: 0px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+        gap: 4px; /* Space between grid items */
+        padding: 4px; /* Padding around the grid container */
         gap: 20px;
         padding: 10px;
         height: 30px;
