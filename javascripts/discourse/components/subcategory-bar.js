@@ -69,7 +69,7 @@ export default class SubscriptionBar extends Component {
     isLetterFilter(s) {
       if(s !== ""){
         const firstChar = s.toUpperCase().charAt(0);
-        const r = firstChar === this.letterFilter || (this.letterFilter === "0-9" && firstChar >= '0' && firstChar <= '9')
+        const r = firstChar === this.letterFilter.toUpperCase() || (this.letterFilter.toUpperCase() === "0-9" && firstChar >= '0' && firstChar <= '9')
         return r
       }
       return false;
@@ -103,7 +103,7 @@ export default class SubscriptionBar extends Component {
 
     isWordFilter(s) {
       if(s !== "") {
-        const r = s.indexOf(this.wordFilter , 0) ===0 ;
+        const r = s.toLowerCase().indexOf(this.wordFilter.toLowerCase() , 0) ===0 ;
         return r
       }
 
