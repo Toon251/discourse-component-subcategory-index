@@ -59,13 +59,13 @@
                     <tbody>
                         {{#each this.filterData as |sc|}}
                             <tr>
-                                <td>
-                                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                                        <span class="cat-title">{{sc.name}}</span>
+                                <td class="cat-title">
+                                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} >
+                                        <span>{{sc.name}}</span>
                                     </div>
                                 </td>
-                                <td>
-                                    <span class="cat-subtitle">
+                                <td class="cat-subtitle">
+                                    <span >
                                         {{sc.description}}
                                     </span>
                                 </td>
