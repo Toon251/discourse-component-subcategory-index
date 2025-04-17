@@ -71,6 +71,10 @@
     cursor: pointer;
 }
 
+table thead {
+    border-bottom:#24c124 1px solid !important;
+}
+
 .table-header {
     border-bottom:#747272 1px solid !important;
 }
@@ -107,11 +111,13 @@
 .cat-title {
     font-weight: bold;
     color:var(--tertiary);
+    padding: 10px;
 }
 
 .cat-subtitle {
     font-size:small;
     color:var(--quaternary);
+    padding: 10px;
 }
 .subcategory-bar {
     &__wrapper {
