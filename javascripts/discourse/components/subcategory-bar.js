@@ -96,6 +96,7 @@ export default class SubscriptionBar extends Component {
     onPageSizeChange(pageSize) {
       console.log(pageSize);
       this.recordsPerPage = pageSize;
+      console.log(this.recordsPerPage);
       this._filterData();
     }
 
@@ -132,10 +133,10 @@ export default class SubscriptionBar extends Component {
       }else if(this.wordFilter !== "") {
         results = this.subcategories.filter(x => this.isWordFilter(x.name));
       }
-      console.log(results);
-      console.log(settings.page_size_options);
+      //console.log(results);
+      //console.log(settings.page_size_options);
 
-      this.recordsPerPage = settings.page_size;
+      
       if(results !== undefined) {
         if(results.length > 0 ){
           this.records = results.length;
@@ -254,6 +255,7 @@ export default class SubscriptionBar extends Component {
           this.pageSizeOptions = [];
 
           sizes.forEach((s) => this.pageSizeOptions.push({ name: s, value: s }));
+          this.recordsPerPage = settings.page_size;
           this._filterData();
         });
 
