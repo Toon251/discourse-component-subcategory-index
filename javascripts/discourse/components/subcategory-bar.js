@@ -94,9 +94,9 @@ export default class SubscriptionBar extends Component {
 
     @action
     onPageSizeChange(pageSize) {
-      console.log(pageSize);
+      
       this.recordsPerPage = pageSize;
-      console.log(this.recordsPerPage);
+    
       this._filterData();
     }
 
@@ -206,6 +206,14 @@ export default class SubscriptionBar extends Component {
       }
       
       
+    }
+
+    sortedData() {
+      return this.filterData.slice().sort((a, b) => {
+        if (a.name < b.name) return -1; // Adjust criteria for sorting
+        if (a.name > b.name) return 1;
+        return 0;
+      });
     }
 
     _getSubcategory() {
