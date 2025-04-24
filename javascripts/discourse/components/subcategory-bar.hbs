@@ -4,7 +4,7 @@
     <!--<div>Slug : {{this.parentSlug}}</div>-->
     {{#conditional-loading-spinner condition=this.isLoading}}
         
-        <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
+        <div class='subcategory-bar__wrapper {{@settings.plugin_outlet}}'>
             <div class="subcategory-bar__container_search">
                 <div class="input-container">
                     <input value={{this.tmpWordFilter}} oninput={{action "handleInputFilter"}} aria-controls="search-result-count" aria-label="enter search keyword" enterkeyhint="search" autocomplete="off" placeholder="Search" id="ember206" class="ember-text-field ember-view full-page-search search no-blur search-query input-search" type="search">
@@ -36,7 +36,7 @@
             <div class='subcategory-bar__container'>
                 <div class='subcategory-bar__index'>
                     <div>
-                        <a {{on 'click' (fn this.setNoFilter) }}>{{letter}} ทั้งหมด </a> ({{this.letterIndexes.length}})
+                        <a {{on 'click' (fn this.setNoFilter) }}>ทั้งหมด </a> ({{this.letterIndexes.length}})
                     </div>
                     {{#each this.letterIndexes as |letter|}}
                         <div class="index-link">
@@ -96,13 +96,13 @@
                 </div>
                 
                 <div class="page-navigator">
-                    <div {{on 'click' this.prevPage}} class="{{if (eq this.currentPage 1) 'disabled-link' 'enabled-link'}}">
+                    <div {{on 'click' this.prevPage}} class={{if (eq this.currentPage 1) 'disabled-link' 'enabled-link'}}>
                         ก่อนหน้า
                     </div>
                     <div class="page-index" >
                         {{#each this.pages as |p|}}
                             {{#if (not (eq p "..."))}}
-                                <span {{on 'click' (fn this.goToPage p) }} class="{{if (eq this.currentPage p) 'page-item-selected' 'page-item'}}" >
+                                <span {{on 'click' (fn this.goToPage p) }} class={{if (eq this.currentPage p) 'page-item-selected' 'page-item'}} >
                                     <span>{{p}}</span>
                                 </span>
                             {{/if}}
@@ -111,7 +111,7 @@
                             {{/if}}
                         {{/each}}
                     </div>
-                    <div {{on 'click' this.nextPage}} class="{{if (eq this.currentPage this.totalPage) 'disabled-link' 'enabled-link'}}">
+                    <div {{on 'click' this.nextPage}} class={{if (eq this.currentPage this.totalPage) 'disabled-link' 'enabled-link'}}>
                         ถัดไป
                     </div>
                 </div>
