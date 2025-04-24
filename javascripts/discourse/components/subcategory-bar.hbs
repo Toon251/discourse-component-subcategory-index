@@ -1,7 +1,4 @@
 {{#if this.show}}
-    <!--<div>Subcategory indexes : {{this.currentCategoryId}}</div>-->
-    <!--<div>Filter : {{this.letterFilter}}</div>-->
-    <!--<div>Slug : {{this.parentSlug}}</div>-->
     {{#conditional-loading-spinner condition=this.isLoading}}
         
         <div class='subcategory-bar__wrapper {{@settings.plugin_outlet}}'>
@@ -46,7 +43,7 @@
                     
                 </div>
             </div>
-            <!-- Category list -->
+
             <div class="subcategory-bar__grid-container">
                 <table width="100%">
                     
@@ -76,7 +73,7 @@
             
                 
             </div>
-            <!-- Page navigation -->
+
             <div class='subcategory-bar__container_pagination'>
                 <div class="page-option">
                     <div class="page-size-selection">
@@ -121,7 +118,4 @@
         
     {{/conditional-loading-spinner}}
 {{else}}
-    <!--<div>
-        Hidden
-    </div>-->
 {{/if}}
