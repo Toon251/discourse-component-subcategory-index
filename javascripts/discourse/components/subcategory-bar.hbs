@@ -1,13 +1,39 @@
 {{#if this.show}}
-    <!--<div>Subcategory indexes : {{this.currentCategoryId}}</div>
-    <div>Filter : {{this.letterFilter}}</div>-->
-    <div>Slug : {{this.parentSlug}}</div>
     {{#conditional-loading-spinner condition=this.isLoading}}
-        <div class='subcategory-bar__wrapper {{settings.plugin_outlet}}'>
+        
+        <div class='subcategory-bar__wrapper {{@settings.plugin_outlet}}'>
+            <div class="subcategory-bar__container_search">
+                <div class="input-container">
+                    <input value={{this.tmpWordFilter}} oninput={{action "handleInputFilter"}} aria-controls="search-result-count" aria-label="enter search keyword" enterkeyhint="search" autocomplete="off" placeholder="Search" id="ember206" class="ember-text-field ember-view full-page-search search no-blur search-query input-search" type="search">
+                </div>
+                
+                <button class="btn btn-icon-text btn-primary search-cta" aria-label="Search" type="button" {{action "submitFilter"}}>
+                    <svg class="fa d-icon d-icon-magnifying-glass svg-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#magnifying-glass"></use></svg>      <span class="d-button-label">Search</span>
+                </button>
+            </div>
+
+            {{#if this.noFilter }}
+                <div class="filter-word">
+                    ตัวกรอง : แสดงทั้งหมด
+                </div>
+            {{/if}}
+
+            {{#if (not (eq this.wordFilter "")) }}
+                <div class="filter-word">
+                    ตัวกรอง : ค้นหาคำ "*{{this.wordFilter}}*"
+                </div>
+            {{/if}}
+
+            {{#if (not (eq this.letterFilter "")) }}
+                <div class="filter-word">
+                    ตัวกรอง : ค้นหาที่ขึ้นต้นด้วย : "{{this.letterFilter}}"
+                </div>
+            {{/if}}
+
             <div class='subcategory-bar__container'>
                 <div class='subcategory-bar__index'>
                     <div>
-                        <a {{on 'click' (fn this.filterLetter "" ) }}>{{letter}} ทั้งหมด </a> ({{this.letterIndexes.length}})
+                        <a {{on 'click' (fn this.setNoFilter) }}>ทั้งหมด </a> ({{this.letterIndexes.length}})
                     </div>
                     {{#each this.letterIndexes as |letter|}}
                         <div class="index-link">
@@ -17,26 +43,79 @@
                     
                 </div>
             </div>
-        </div>
-        <div class="subcategory-bar__grid-container">
-            
-            {{#each this.subcategories as |sc|}}
-            
-                {{#if (this.isLetterFilter sc.name this.letterFilter) }}
 
+            <div class="subcategory-bar__grid-container">
+                <table width="100%">
+                    
+                    
+                    <tbody>
+                        <tr class="table-header">
+                            <th class="col-name">Listed</th>
+                            <th class="col-desc">Description</th>
+                        </tr>
+                        {{#each this.filterData as |sc|}}
+                            <tr>
+                                <td class="cat-title">
+                                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} >
+                                        <span>{{sc.name}}</span>
+                                    </div>
+                                </td>
+                                <td class="cat-subtitle">
+                                    <span >
+                                        {{sc.description}}
+                                    </span>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                    
+                </table>
+            
+                
+            </div>
 
-                    <div {{on 'click' (fn this.goSubcategory  sc.slug ) }} class="subcategory-bar__grid-item">
-                        <div>{{sc.name}}</div>
-                        <div>
-                            {{sc.description}}
-                        </div>
+            <div class='subcategory-bar__container_pagination'>
+                <div class="page-option">
+                    <div class="page-size-selection">
+                    <div>แสดง</div>
+                        <ComboBox
+                            @id="pageSize"
+                            @valueProperty="value"
+                            @content={{this.pageSizeOptions}}
+                            @value={{this.recordsPerPage}}
+                            @onChange={{action "onPageSizeChange"}}
+                            />
                     </div>
-                {{/if}}
-            {{/each}}
+                    <div class="page-head">
+                        <span>หน้า {{this.currentPage}}/{{this.totalPage}}</span> 
+                        <span>ทั้งหมด {{this.records}} รายการ</span>
+                    </div>
+                </div>
+                
+                <div class="page-navigator">
+                    <div {{on 'click' this.prevPage}} class={{if (eq this.currentPage 1) 'disabled-link' 'enabled-link'}}>
+                        ก่อนหน้า
+                    </div>
+                    <div class="page-index" >
+                        {{#each this.pages as |p|}}
+                            {{#if (not (eq p "..."))}}
+                                <span {{on 'click' (fn this.goToPage p) }} class={{if (eq this.currentPage p) 'page-item-selected' 'page-item'}} >
+                                    <span>{{p}}</span>
+                                </span>
+                            {{/if}}
+                            {{#if (eq p "...")}}
+                                <span class="page-item">...</span>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    <div {{on 'click' this.nextPage}} class={{if (eq this.currentPage this.totalPage) 'disabled-link' 'enabled-link'}}>
+                        ถัดไป
+                    </div>
+                </div>
+
+            </div>
         </div>
+        
     {{/conditional-loading-spinner}}
 {{else}}
-    <!--<div>
-        Hidden
-    </div>-->
 {{/if}}

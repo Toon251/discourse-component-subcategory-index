@@ -20,6 +20,20 @@ export default class SubscriptionBar extends Component {
     @tracked letterIndexes = [];
     @tracked letterFilter = "";
     @tracked parentSlug;
+    @tracked wordFilter = "";
+    @tracked tmpWordFilter = "";
+    @tracked currentPage = 1;
+    @tracked totalPage = 1;
+    @tracked noFilter = true;
+    @tracked filterData;
+    @tracked pages = [];
+    @tracked recordsPerPage = 0;
+    @tracked records = 0;
+    @tracked pageSizeOptions = [];
+
+  
+
+  
 
     constructor() {
       super(...arguments);
@@ -36,6 +50,8 @@ export default class SubscriptionBar extends Component {
     configuredCategory() {
       if (settings.categoryIds.length) {
         return settings.categoryIds.includes(this.currentCategory());
+      }else{
+        return false
       }
     }
 
@@ -46,14 +62,165 @@ export default class SubscriptionBar extends Component {
       return /Mobi|Android/i.test(navigator.userAgent);
     }
 
+    isCurrentPage (cp, p) {
+      return  cp == p
+    }
     
-    isLetterFilter(s, f) {
-      const r = f === "" || s.toUpperCase().charAt(0) === f;
-      return r
+    isLetterFilter(s) {
+      if(s !== ""){
+        const firstChar = s.toUpperCase().charAt(0);
+        const r = firstChar === this.letterFilter.toUpperCase() || (this.letterFilter.toUpperCase() === "0-9" && firstChar >= '0' && firstChar <= '9')
+        return r
+      }
+      return false;
+      
     }
 
+    @action
+    prevPage() {
+      if(this.currentPage > 1) {
+        this.currentPage -= 1;
+      }
+      this._filterData();
+    }
+
+    @action
+    nextPage() {
+      if(this.currentPage < this.totalPage) {
+        this.currentPage += 1;
+      }
+      this._filterData();
+    }
+
+    @action
+    onPageSizeChange(pageSize) {
+      
+      this.recordsPerPage = pageSize;
+    
+      this._filterData();
+    }
+
+
+    isWordFilter(s) {
+      if(s !== "") {
+        const r = s.toLowerCase().indexOf(this.wordFilter.toLowerCase() , 0) ===0 ;
+        return r
+      }
+
+      return false;
+      
+    }
+
+    getTotalFilters() {
+      /*if(this.letterFilter !== "") {
+
+        return subcategories.filter(x => context.isLetterFilter(x, context.letterFilter)).length;
+      }
+      if(this.wordFilter !== "") {
+        return subcategories.filter(x => context.isWordFilter(x, context.wordFilter)).length;
+      }*/
+      return 20;
+    }
+
+
+
+    _filterData() {
+      let results;
+      if(this.noFilter){
+        results = this.subcategories;
+      }else if(this.letterFilter !== "") {
+        results = this.subcategories.filter(x => this.isLetterFilter(x.name));
+      }else if(this.wordFilter !== "") {
+        results = this.subcategories.filter(x => this.isWordFilter(x.name));
+      }
+      //console.log(results);
+      //console.log(settings.page_size_options);
+
+      
+      if(results !== undefined) {
+        if(results.length > 0 ){
+          this.records = results.length;
+        
+          this.totalPage = Math.ceil(this.records / this.recordsPerPage)
+          this.pages = [];
+  
+          /* Generate page index array */
+          
+          if(this.totalPage <=7) {
+            for (let i = 1; i <= this.totalPage; i++) {
+              this.pages.push(i);
+            }
+          }
+          if(this.totalPage >7) {
+            this.pages.push(1);
+
+            if(this.currentPage <= 3) {
+              for (let i = 2; i <= 3; i++) {
+                this.pages.push(i);
+              }
+            }
+
+            if(this.currentPage > 3) {
+              this.pages.push("...");
+            }
+            if(this.currentPage > 3 && this.currentPage < this.totalPage-3){
+              for (let i = this.currentPage - 1; i <= this.currentPage + 1; i++) {
+                this.pages.push(i);
+              }
+            }
+            if(this.currentPage < this.totalPage-3) {
+              this.pages.push("...");
+            }
+
+            if(this.currentPage >= this.totalPage-3) {
+              for (let i = this.totalPage-3; i < this.totalPage; i++) {
+                this.pages.push(i);
+              }
+            }
+
+            this.pages.push(this.totalPage);
+          }
+
+
+  
+          const startIndex = (this.currentPage - 1) * this.recordsPerPage; // คำนวณตำแหน่งเริ่มต้น
+          
+          let arr  = [];
+          for(let j = startIndex; j<= startIndex + this.recordsPerPage - 1; j++){
+            if(results[j] !== "" && results[j] !== undefined){
+              arr.push(results[j]);
+            }
+            
+          }
+
+          this.filterData = arr.slice().sort((a, b) => {
+            if (a.name < b.name) return -1; // Adjust criteria for sorting
+            if (a.name > b.name) return 1;
+            return 0;
+          });
+          //const records = this.results.slice(startIndex, startIndex + this.recordsPerPage);
+         
+        }else{
+          this.records = 0;
+          this.pages = [];
+          this.filterData = []
+        }
+      }else{
+        this.records = 0;
+        this.pages = [];
+        this.filterData = []
+      }
+      
+      
+    }
+
+    
+
     _getSubcategory() {
-      if (this.currentCategory() && this.configuredCategory()) {
+      this.currentCategoryId = 0;
+      
+
+      if (this.configuredCategory()) {
         this.isLoading = true;
         this.show = true;
 
@@ -74,13 +241,15 @@ export default class SubscriptionBar extends Component {
             }
             
             const p = arr.filter(x => x === firstLetter);
-            console.log(p)
-            if(p.length > 0 || p !== null) {
-              console.log("Add " + firstLetter)
+            
+            if(p.length == 0 ) {
+              //console.log("Add " + firstLetter)
               arr.push(firstLetter)
             }
           })
-          console.log(this.letterIndexes);
+          //console.log(this.letterIndexes);
+
+          arr.sort();
           
           return arr;
         })
@@ -89,16 +258,14 @@ export default class SubscriptionBar extends Component {
           //console.log(r[0]);
 
           this.letterIndexes = r[0];
-
           this.isLoading = false;
+          let sizes  = settings.page_size_options.split("|");
+          this.pageSizeOptions = [];
+
+          sizes.forEach((s) => this.pageSizeOptions.push({ name: s, value: s }));
+          this.recordsPerPage = settings.page_size;
+          this._filterData();
         });
-
-        
-
-
-
-        
-
 
 
         /*this.galleryOnly = this.configuredCategory().galleryOnly;
@@ -122,14 +289,42 @@ export default class SubscriptionBar extends Component {
         this.isLoading = false;
       } else {
         this.isLoading = false;
-        this.showFor = false;
+        this.show = false;
+        this.wordFilter = "";
+        this.letterFilter = "";
+        this.currentPage = 1;
+        this.totalPage = 1;
+        this.tmpWordFilter = "";
+        this.noFilter = true;
+
       }
+
+      
     }
   
     @action
     filterLetter(letter) {
         //alert("Letter is " + letter);
         this.letterFilter = letter;
+        this.wordFilter = "";
+        this.noFilter = false;
+        this.currentPage = 1;
+        this._filterData();
+    }
+
+    @action
+    setNoFilter() {
+      this.noFilter = true;
+      this.letterFilter = "";
+      this.wordFilter = "";
+      this.currentPage = 1;
+      this._filterData();
+    }
+
+    @action
+    goToPage(p) {
+      this.currentPage = p;
+      this._filterData();
     }
 
     @action
@@ -137,6 +332,26 @@ export default class SubscriptionBar extends Component {
       const url = "/c/" + this.parentSlug + "/" + slug
       //alert("go " + url);
       window.location.href = url;
+    }
+
+    @action
+    submitFilter() {
+      //alert(`Input search: ${this.wordFilter}`);
+      this.letterFilter = "";
+      this.wordFilter = this.tmpWordFilter;
+      
+      if(this.tmpWordFilter === "" ) {
+        this.noFilter = true;
+      }else{
+        this.noFilter = false;
+      }
+      this.currentPage = 1;
+      this._filterData();
+    }
+
+    @action
+    handleInputFilter(event) {
+      this.tmpWordFilter = event.target.value;
     }
 
   
